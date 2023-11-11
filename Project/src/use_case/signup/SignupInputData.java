@@ -23,4 +23,5 @@ public class SignupInputData {
     public String getRepeatPassword() {
         return repeatPassword;
     }
+
 }
