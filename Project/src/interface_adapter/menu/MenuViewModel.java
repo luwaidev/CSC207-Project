@@ -1,4 +1,4 @@
-package interface_adapter.Menu;
+package interface_adapter.menu;
 
 public class MenuViewModel {
 }
