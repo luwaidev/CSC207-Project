@@ -12,9 +12,9 @@ public class BetController {
 
 
     public void execute(String team1, String team2) {
-        BetInputData loginInputData = new BetInputData(
+        BetInputData betInputData = new BetInputData(
                 team1, team2);
 
-        betUseCaseInteractor.execute(loginInputData);
+        betUseCaseInteractor.execute(betInputData);
     }
 }
