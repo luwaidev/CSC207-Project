@@ -102,7 +102,24 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
      * Clear user data
      */
     @Override
-    public void clearUsers(){
-        // TODO: Implement
+    public String clearUsers(){
+        // Record users TODO: Make nicer
+        String users = accounts.keySet().toString();
+
+        // Clear users in accounts
+        accounts.clear();
+
+        // Write over all accounts in files
+        BufferedWriter writer;
+        try {
+                writer = new BufferedWriter(new FileWriter(csvFile));
+                writer.write("");
+                writer.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return users;
+
     }
 }
