@@ -31,4 +31,15 @@ public class LoginInteractor implements LoginInputBoundary {
             }
         }
     }
+
+    @Override
+    public void skipLogin(){
+
+        String username = "DEV";
+        String password = "DEV";
+        User user = userDataAccessObject.get(username);
+
+        LoginOutputData loginOutputData = new LoginOutputData(user.getName(), false);
+        loginPresenter.prepareSuccessView(loginOutputData);
+    }
 }

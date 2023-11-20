@@ -1,8 +1,11 @@
 package interface_adapter.login;
 
+import interface_adapter.bet_prediction.BetPredictionViewModel;
 import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.ViewManagerModel;
+import interface_adapter.menu.MenuState;
+import interface_adapter.menu.MenuViewModel;
 import interface_adapter.signup.SignupState;
 import use_case.login.LoginOutputBoundary;
 import use_case.login.LoginOutputData;
@@ -12,14 +15,15 @@ import use_case.signup.SignupOutputData;
 public class LoginPresenter implements LoginOutputBoundary {
 
     private final LoginViewModel loginViewModel;
-    private final LoggedInViewModel loggedInViewModel;
+    private final MenuViewModel menuViewModel;
+
     private ViewManagerModel viewManagerModel;
 
     public LoginPresenter(ViewManagerModel viewManagerModel,
-                          LoggedInViewModel loggedInViewModel,
+                          MenuViewModel menuViewModel,
                           LoginViewModel loginViewModel) {
         this.viewManagerModel = viewManagerModel;
-        this.loggedInViewModel = loggedInViewModel;
+        this.menuViewModel = menuViewModel;
         this.loginViewModel = loginViewModel;
     }
 
@@ -27,12 +31,20 @@ public class LoginPresenter implements LoginOutputBoundary {
     public void prepareSuccessView(LoginOutputData response) {
         // On success, switch to the logged in view.
 
-        LoggedInState loggedInState = loggedInViewModel.getState();
-        loggedInState.setUsername(response.getUsername());
-        this.loggedInViewModel.setState(loggedInState);
-        this.loggedInViewModel.firePropertyChanged();
+//        LoggedInState loggedInState = loggedInViewModel.getState();
+//        loggedInState.setUsername(response.getUsername());
+//        this.loggedInViewModel.setState(loggedInState);
+//        this.loggedInViewModel.firePropertyChanged();
+//
+//        this.viewManagerModel.setActiveView(loggedInViewModel.getViewName());
+//        this.viewManagerModel.firePropertyChanged();
+        MenuState menuState = menuViewModel.getState();
+        menuState.setUsername(response.getUsername());
+        this.menuViewModel.setState(menuState);
+        this.menuViewModel.firePropertyChanged();
+        loginViewModel.firePropertyChanged();
 
-        this.viewManagerModel.setActiveView(loggedInViewModel.getViewName());
+        this.viewManagerModel.setActiveView(menuViewModel.getViewName());
         this.viewManagerModel.firePropertyChanged();
     }
 

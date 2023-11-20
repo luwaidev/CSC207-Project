@@ -4,18 +4,14 @@ import data_access.FileUserDataAccessObject;
 import entity.CommonUserFactory;
 import interface_adapter.login.LoginViewModel;
 import interface_adapter.logged_in.LoggedInViewModel;
+import interface_adapter.menu.MenuViewModel;
 import interface_adapter.signup.SignupViewModel;
 import interface_adapter.bet_prediction.BetPredictionViewModel;
 import interface_adapter.ViewManagerModel;
 
 import use_case.login.LoginUserDataAccessInterface;
 
-import view.LoggedInView;
-import view.LoginView;
-import view.SignupView;
-import view.BetPredictionView;
-
-import view.ViewManager;
+import view.*;
 
 
 import javax.swing.*;
@@ -50,6 +46,8 @@ public class Main {
         LoginViewModel loginViewModel = new LoginViewModel();
         LoggedInViewModel loggedInViewModel = new LoggedInViewModel();
         SignupViewModel signupViewModel = new SignupViewModel();
+
+        MenuViewModel menuViewModel = new MenuViewModel();
         BetPredictionViewModel betPredictionViewModel = new BetPredictionViewModel();
 
         // Create UserDataAccess Object
@@ -60,25 +58,25 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        //Initialize Signup View
+        // Initialize Views
         SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel, userDataAccessObject, userDataAccessObject);
         views.add(signupView, signupView.viewName);
 
-        // Initialize Login view
-        LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, loggedInViewModel, userDataAccessObject);
+        LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, menuViewModel, userDataAccessObject);
         views.add(loginView, loginView.viewName);
 
-        // Initialize Logged In View
         LoggedInView loggedInView = new LoggedInView(loggedInViewModel);
         views.add(loggedInView, loggedInView.viewName);
 
-        // Initialize Bet Predictor view
+        MenuView menuView = MenuUseCaseFactory.create(viewManagerModel, menuViewModel, loginViewModel, betPredictionViewModel);
+        views.add(menuView, menuView.viewName);
+
         BetPredictionView betPredictionView = new BetPredictionView(betPredictionViewModel);
         views.add(betPredictionView, betPredictionView.viewName);
 
         // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV
         // viewManagerModel.setActiveView(signupView.viewName);
-        viewManagerModel.setActiveView(betPredictionView.viewName);
+        viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
 
         application.pack();
