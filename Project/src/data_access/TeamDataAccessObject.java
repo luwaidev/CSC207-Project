@@ -1,18 +1,23 @@
 package data_access;
 
 import entity.Team;
-import okhttp3.*;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class TeamDataAccessObject {
     public static void main(String[] args) {
-        System.out.println(getTeamStats(1, 2018));
+        Team team1 = getTeamStats(1, 2018);
+        System.out.println(team1.getId());
+        System.out.println(team1.getAvg_points());
+        System.out.println(team1.getNumgames());
+        System.out.println(team1.getPoints_per_game());
     }
     public static Team getTeamStats(int teamID, int season) throws JSONException{
         ArrayList<Integer> points = new ArrayList<>();
@@ -33,7 +38,7 @@ public class TeamDataAccessObject {
         catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(points);
+        //System.out.println(points);
         return new Team(teamID, points);
     }
 
