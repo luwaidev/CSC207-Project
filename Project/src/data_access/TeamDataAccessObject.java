@@ -7,11 +7,12 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import use_case.bet_predictor.BetTeamDataAccessInterface;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class TeamDataAccessObject {
+public class TeamDataAccessObject implements BetTeamDataAccessInterface {
     public static void main(String[] args) {
         Team team1 = getTeamStats(1, 2018);
         System.out.println(team1.getId());
