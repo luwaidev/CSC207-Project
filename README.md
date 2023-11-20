@@ -19,6 +19,7 @@ graph TD;
 	M(Main Menu)
 	P(Bet Prediction Page)
 	
+	
  
 	S-->|After Creating Account|L
 	S-->|Already Have Account|L
