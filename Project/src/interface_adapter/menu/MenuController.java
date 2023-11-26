@@ -11,4 +11,6 @@ public class MenuController {
     public void openBetPredictor(){
         menuUseCaseInteractor.openBetPredictor();
     }
+
+    public void openBetHistory() { menuUseCaseInteractor.openBetHistory();}
 }

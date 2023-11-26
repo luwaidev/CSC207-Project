@@ -6,15 +6,15 @@ import java.util.Hashtable;
 import java.util.NoSuchElementException;
 
 public class BetHistory {
-    private final Dictionary<CommonUser, ArrayList<String>> betHistory = new Hashtable<>();
+    private final Dictionary<User, ArrayList<String>> betHistory = new Hashtable<>();
 
-    public ArrayList<String> getHistory(CommonUser user) {
+    public ArrayList<String> getHistory(User user) {
         if (betHistory.get(user) != null) {
             return betHistory.get(user);
         }else {
             throw new NoSuchElementException("No such user exists!");
         }
     };
-
+    public updateHistory
 
 }
