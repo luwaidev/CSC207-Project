@@ -51,6 +51,10 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
             }
         });
 
+        betHistory.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {}
+        });
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         this.add(title);
