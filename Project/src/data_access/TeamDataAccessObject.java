@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class TeamDataAccessObject implements BetTeamDataAccessInterface {
     public static void main(String[] args) {
-        Team team1 = getTeamStats(getTeamID("Hawks"), 2018);
+        Team team1 = getTeamStats(getTeamID("Hawks"));
         System.out.println(team1.getId());
         System.out.println(team1.getAvg_points());
         System.out.println(team1.getNumgames());
@@ -47,12 +47,12 @@ public class TeamDataAccessObject implements BetTeamDataAccessInterface {
         return id;
     }
 
-    public static Team getTeamStats(int teamID, int season) throws JSONException{
+    public static Team getTeamStats(int teamID) throws JSONException{
         ArrayList<Integer> points = new ArrayList<>();
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("https://balldontlie.io/api/v1/games?seasons[]=" + season + "&team_ids[]=" + teamID)
+                .url("https://balldontlie.io/api/v1/games?seasons[]=" + 2018 + "&team_ids[]=" + teamID)
                 .get()
                 .build();
         try {

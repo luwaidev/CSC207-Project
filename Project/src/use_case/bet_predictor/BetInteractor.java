@@ -19,8 +19,8 @@ public class BetInteractor implements BetInputBoundary {
         String team1 = betInputData.getTeam1Name();
         String team2 = betInputData.getTeam2Name();
 
-        Team team1 = getTeamStats
-
+        Team team = TeamDataAccessObject.getTeamStats(TeamDataAccessObject.getTeamID(team1))
+        System.out.println(team.getAvg_points());
 
 
 
