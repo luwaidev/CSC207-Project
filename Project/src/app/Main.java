@@ -76,6 +76,8 @@ public class Main {
         BetPredictionView betPredictionView = new BetPredictionView(betPredictionViewModel);
         views.add(betPredictionView, betPredictionView.viewName);
 
+        BetHistoryView betHistoryView = new BetHistoryView();
+
         // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV
         // viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.setActiveView(signupView.viewName);
