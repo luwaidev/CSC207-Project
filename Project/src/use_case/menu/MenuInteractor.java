@@ -12,4 +12,7 @@ public class MenuInteractor implements MenuInputBoundary{
         menuPresenter.openBetPredictor();
     }
 
+    @Override
+    public void openBetHistory() {menuPresenter.openBetHistory();}
+
 }

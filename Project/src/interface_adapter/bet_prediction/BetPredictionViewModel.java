@@ -14,7 +14,7 @@ public class BetPredictionViewModel extends ViewModel {
 
     public final String PREDICT_BUTTON_LABEL = "Predict Winner";
 
-    private BetPredictionState state = new BetPredictionState();
+    private static BetPredictionState state = new BetPredictionState();
     public BetPredictionViewModel(){super("bet prediction");}
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
@@ -32,7 +32,7 @@ public class BetPredictionViewModel extends ViewModel {
 
 
     public void setState (BetPredictionState state) {this.state = state;}
-    public BetPredictionState getState() {return state;}
+    public static BetPredictionState getState() {return state;}
 
 
 }

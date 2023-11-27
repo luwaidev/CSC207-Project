@@ -2,6 +2,7 @@ package app;
 
 import data_access.FileUserDataAccessObject;
 import entity.CommonUserFactory;
+import interface_adapter.bet_history.BetHistoryViewModel;
 import interface_adapter.login.LoginViewModel;
 import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.menu.MenuViewModel;
@@ -49,6 +50,7 @@ public class Main {
 
         MenuViewModel menuViewModel = new MenuViewModel();
         BetPredictionViewModel betPredictionViewModel = new BetPredictionViewModel();
+        BetHistoryViewModel betHistoryViewModel = new BetHistoryViewModel();
 
         // Create UserDataAccess Object
         FileUserDataAccessObject userDataAccessObject;
@@ -68,7 +70,7 @@ public class Main {
         LoggedInView loggedInView = new LoggedInView(loggedInViewModel);
         views.add(loggedInView, loggedInView.viewName);
 
-        MenuView menuView = MenuUseCaseFactory.create(viewManagerModel, menuViewModel, loginViewModel, betPredictionViewModel);
+        MenuView menuView = MenuUseCaseFactory.create(viewManagerModel, menuViewModel, loginViewModel, betPredictionViewModel, betHistoryViewModel);
         views.add(menuView, menuView.viewName);
 
         BetPredictionView betPredictionView = new BetPredictionView(betPredictionViewModel);
