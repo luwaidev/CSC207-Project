@@ -15,6 +15,4 @@ public class BetHistory {
             throw new NoSuchElementException("No such user exists!");
         }
     };
-    public updateHistory
-
 }
