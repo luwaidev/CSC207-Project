@@ -3,18 +3,19 @@ package interface_adapter.bet_prediction;
 import use_case.bet_predictor.BetInputBoundary;
 import use_case.bet_predictor.BetInputData;
 
+import javax.swing.*;
 
-public class BetController {
+
+public class BetPredictionController {
     final BetInputBoundary betUseCaseInteractor;
-    public BetController(BetInputBoundary betUseCaseInteractor) {
+
+    public BetPredictionController(BetInputBoundary betUseCaseInteractor) {
         this.betUseCaseInteractor = betUseCaseInteractor;
     }
 
 
-    public static void execute(String team1, String team2) {
-        BetInputData betInputData = new BetInputData(
-                team1, team2);
-
+    public void execute(String team1, String team2, JPanel panel) {
+        BetInputData betInputData = new BetInputData(team1, team2, panel);
         betUseCaseInteractor.execute(betInputData);
     }
 }
