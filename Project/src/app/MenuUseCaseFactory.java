@@ -3,6 +3,7 @@ package app;
 import entity.CommonUserFactory;
 import entity.UserFactory;
 import interface_adapter.ViewManagerModel;
+import interface_adapter.bet_history.BetHistoryViewModel;
 import interface_adapter.bet_prediction.BetPredictionViewModel;
 import interface_adapter.login.LoginController;
 import interface_adapter.login.LoginPresenter;
@@ -30,10 +31,10 @@ public class MenuUseCaseFactory {
     public static MenuView create(
             ViewManagerModel viewManagerModel,
             MenuViewModel menuViewModel, LoginViewModel loginViewModel,
-            BetPredictionViewModel betPredictionViewModel ){
+            BetPredictionViewModel betPredictionViewModel, BetHistoryViewModel betHistoryViewModel){
 
         try {
-            MenuController menuController = createMenuUseCase(viewManagerModel, menuViewModel,loginViewModel, betPredictionViewModel);
+            MenuController menuController = createMenuUseCase(viewManagerModel, menuViewModel,loginViewModel, betPredictionViewModel, betHistoryViewModel);
             return new MenuView(menuViewModel, menuController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
@@ -45,10 +46,10 @@ public class MenuUseCaseFactory {
     private static MenuController createMenuUseCase(
             ViewManagerModel viewManagerModel,
             MenuViewModel menuViewModel, LoginViewModel loginViewModel,
-            BetPredictionViewModel betPredictionViewModel) throws IOException {
+            BetPredictionViewModel betPredictionViewModel,BetHistoryViewModel betHistoryViewModel) throws IOException {
 
         // Notice how we pass this method's parameters to the Presenter.
-        MenuOutputBoundary menuOutputBoundary = new MenuPresenter(viewManagerModel, loginViewModel, betPredictionViewModel);
+        MenuOutputBoundary menuOutputBoundary = new MenuPresenter(viewManagerModel, loginViewModel, betPredictionViewModel, betHistoryViewModel);
 
         MenuInputBoundary menuInteractor = new MenuInteractor(menuOutputBoundary);
 
