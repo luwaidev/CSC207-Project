@@ -26,9 +26,11 @@ public class BetInteractor implements BetInputBoundary {
 
         if (fteam.getAvg_points() > steam.getAvg_points()) {
             BetOutputData betWinner = new BetOutputData(team1, betInputData.panel);
+            betPresenter.prepareSuccessView(betWinner);
         }
         else {
             BetOutputData betWinner = new BetOutputData(team2, betInputData.panel);
+            betPresenter.prepareSuccessView(betWinner);
         }
 
     }

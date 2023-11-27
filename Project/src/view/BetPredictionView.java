@@ -16,14 +16,18 @@ import java.awt.event.KeyListener;
 public class BetPredictionView extends JPanel {
     public final String viewName = "bet prediction";
     private final BetPredictionViewModel bpViewModel;
+    private final BetController betController;
 
     final JTextField inputFieldA = new JTextField(15);
     final JTextField inputFieldB = new JTextField(15);
 
     final JButton predict;
 
-    public BetPredictionView(BetPredictionViewModel bpViewModel){
+    public BetPredictionView(BetPredictionViewModel bpViewModel, BetController betController){
         this.bpViewModel = bpViewModel;
+        this.betController = betController;
+
+
 
         // Main title
         JLabel title = new JLabel((bpViewModel.TITLE_LABEL));
@@ -79,6 +83,8 @@ public class BetPredictionView extends JPanel {
 
             }
         });
+        JPanel panel = this;
+
         predict.addActionListener(
                 new ActionListener() {
                     @Override
@@ -86,7 +92,7 @@ public class BetPredictionView extends JPanel {
                         if (e.getSource().equals(predict)) {
                             BetPredictionState current = BetPredictionViewModel.getState();
 
-                            BetController.execute(current.getInputA(), current.getInputB());
+                            betController.execute(current.getInputA(), current.getInputB(), panel);
                         }
                     }
 
