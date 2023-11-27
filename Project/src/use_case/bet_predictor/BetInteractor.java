@@ -1,4 +1,6 @@
 package use_case.bet_predictor;
+import data_access.TeamDataAccessObject;
+import entity.Team;
 
 public class BetInteractor implements BetInputBoundary {
     // this class is for making predictions b/w two teams
@@ -14,18 +16,20 @@ public class BetInteractor implements BetInputBoundary {
     }
     @Override
     public void execute(BetInputData betInputData) {
-        // TODO: get team ids using input data
+        String team1 = betInputData.getTeam1Name();
+        String team2 = betInputData.getTeam2Name();
 
-        // TODO: predict which team is more likely to win
-        /*
-        steps:
-        1. search for game ids containing both teams
-        2.
-         */
+        Team fteam = TeamDataAccessObject.getTeamStats(TeamDataAccessObject.getTeamID(team1));
+        Team steam = TeamDataAccessObject.getTeamStats(TeamDataAccessObject.getTeamID(team2));
 
 
 
-
+        if (fteam.getAvg_points() > steam.getAvg_points()) {
+            BetOutputData betWinner = new BetOutputData(team1, betInputData.panel);
+        }
+        else {
+            BetOutputData betWinner = new BetOutputData(team2, betInputData.panel);
+        }
 
     }
 }
