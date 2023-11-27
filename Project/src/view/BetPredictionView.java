@@ -1,10 +1,15 @@
 package view;
 
+import interface_adapter.bet_prediction.BetController;
 import interface_adapter.bet_prediction.BetPredictionState;
 import interface_adapter.bet_prediction.BetPredictionViewModel;
+import interface_adapter.bet_recommendation.RecommendState;
+import interface_adapter.bet_recommendation.RecommendViewModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -74,7 +79,19 @@ public class BetPredictionView extends JPanel {
 
             }
         });
+        predict.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(predict)) {
+                            BetPredictionState current = BetPredictionViewModel.getState();
 
+                            BetController.execute(current.getInputA(), current.getInputB());
+                        }
+                    }
+
+                }
+        );
 
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

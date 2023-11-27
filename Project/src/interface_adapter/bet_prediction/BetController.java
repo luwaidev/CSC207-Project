@@ -11,7 +11,7 @@ public class BetController {
     }
 
 
-    public void execute(String team1, String team2) {
+    public static void execute(String team1, String team2) {
         BetInputData betInputData = new BetInputData(
                 team1, team2);
 
