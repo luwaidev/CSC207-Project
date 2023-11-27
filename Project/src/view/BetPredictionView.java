@@ -25,6 +25,7 @@ public class BetPredictionView extends JPanel {
 
     public BetPredictionView(BetPredictionViewModel bpViewModel, BetController betController){
         this.bpViewModel = bpViewModel;
+
         this.betController = betController;
 
 

@@ -7,15 +7,15 @@ import javax.swing.*;
 
 
 public class BetController {
-    final BetInputBoundary betUseCaseInteractor;
+    final BetInputBoundary betInteractor;
     public BetController(BetInputBoundary betUseCaseInteractor) {
-        this.betUseCaseInteractor = betUseCaseInteractor;
+        this.betInteractor = betUseCaseInteractor;
     }
 
 
     public void execute(String team1, String team2, JPanel panel) {
         BetInputData betInputData = new BetInputData(team1, team2,panel);
 
-        betUseCaseInteractor.execute(betInputData);
+        betInteractor.execute(betInputData);
     }
 }
