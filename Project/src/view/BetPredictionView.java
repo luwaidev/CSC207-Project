@@ -1,10 +1,8 @@
 package view;
 
-import interface_adapter.bet_prediction.BetController;
+import interface_adapter.bet_prediction.BetPredictionController;
 import interface_adapter.bet_prediction.BetPredictionState;
 import interface_adapter.bet_prediction.BetPredictionViewModel;
-import interface_adapter.bet_recommendation.RecommendState;
-import interface_adapter.bet_recommendation.RecommendViewModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,19 +14,17 @@ import java.awt.event.KeyListener;
 public class BetPredictionView extends JPanel {
     public final String viewName = "bet prediction";
     private final BetPredictionViewModel bpViewModel;
-    private final BetController betController;
+    private final BetPredictionController betPredictionController;
 
     final JTextField inputFieldA = new JTextField(15);
     final JTextField inputFieldB = new JTextField(15);
 
     final JButton predict;
 
-    public BetPredictionView(BetPredictionViewModel bpViewModel, BetController betController){
+    public BetPredictionView(BetPredictionViewModel bpViewModel, BetPredictionController betPredictionController){
+
         this.bpViewModel = bpViewModel;
-
-        this.betController = betController;
-
-
+        this.betPredictionController = betPredictionController;
 
         // Main title
         JLabel title = new JLabel((bpViewModel.TITLE_LABEL));
@@ -91,9 +87,10 @@ public class BetPredictionView extends JPanel {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         if (e.getSource().equals(predict)) {
-                            BetPredictionState current = BetPredictionViewModel.getState();
+                            BetPredictionState current = bpViewModel.getState();
 
-                            betController.execute(current.getInputA(), current.getInputB(), panel);
+                            betPredictionController.execute(current.getInputA(), current.getInputB(), panel);
+
                         }
                     }
 
