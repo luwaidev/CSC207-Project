@@ -27,6 +27,6 @@ public class BetPredictionPresenter implements BetOutputBoundary {
 
     @Override
     public void prepareFailView(BetOutputData teams) {
-        JOptionPane.showMessageDialog(teams.panel,"Invalid Player" );
+        JOptionPane.showMessageDialog(teams.panel,"Invalid Team" );
     }
 }
