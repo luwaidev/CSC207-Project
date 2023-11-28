@@ -1,14 +1,15 @@
 package interface_adapter.bet_history;
 
-public class BetHistoryState {
-    private String inputA = "a";
-    private String inputB = "b";
+import interface_adapter.logged_in.LoggedInState;
 
-    public BetHistoryState(BetHistoryState copy){
-        inputA = copy.inputA;
-        inputB = copy.inputB;
+public class BetHistoryState {
+    private String username = "";
+
+    public BetHistoryState(BetHistoryState copy) {
+        username = copy.username;
     }
 
+    // Because of the previous copy constructor, the default constructor must be explicit.
     public BetHistoryState() {}
 
 

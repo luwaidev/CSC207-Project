@@ -1,9 +1,6 @@
 package entity;
 
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 public class BetHistory {
     private static final Dictionary<User, ArrayList<String>> betHistory = new Hashtable<>();
@@ -16,7 +13,7 @@ public class BetHistory {
             betHistory.get(user).add(bet);
         }
     }
-    public ArrayList<String> getBetHistory(User user) {
+    public static ArrayList<String> getBetHistory(User user) {
         if (betHistory.get(user) != null) {
             return betHistory.get(user);
         }else {

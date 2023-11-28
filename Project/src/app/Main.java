@@ -10,8 +10,6 @@ import interface_adapter.signup.SignupViewModel;
 import interface_adapter.bet_prediction.BetPredictionViewModel;
 import interface_adapter.ViewManagerModel;
 
-import use_case.login.LoginUserDataAccessInterface;
-
 import view.*;
 
 
@@ -76,7 +74,7 @@ public class Main {
         BetPredictionView betPredictionView = new BetPredictionView(betPredictionViewModel);
         views.add(betPredictionView, betPredictionView.viewName);
 
-        BetHistoryView betHistoryView = new BetHistoryView();
+        BetHistoryView betHistoryView = new BetHistoryView(betHistoryViewModel);
         views.add(betHistoryView, betHistoryView.viewName);
 
         // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV

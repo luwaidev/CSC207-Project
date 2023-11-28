@@ -7,6 +7,9 @@ public class BetHistoryInteractor {
         String bet = user.getName() + team1 + team2 + winningTeam;
         BetHistory.setBetHistory(user, bet);
     }
+    public void getHistory (User user) {
+        BetHistory.getBetHistory(user);
+    }
 
     public void exportHistory () {
 

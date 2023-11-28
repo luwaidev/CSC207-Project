@@ -1,8 +1,11 @@
 package use_case.bet_predictor;
 
+import java.awt.*;
+
 public class BetOutputData {
 
     private final String higherwinpct_team;
+    public Component panel;
     private boolean useCaseFailed;
 
     public BetOutputData(String higherwin_team, boolean useCaseFailed) {
