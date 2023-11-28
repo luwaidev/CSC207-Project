@@ -1,6 +1,7 @@
 package app;
 
 import data_access.FileUserDataAccessObject;
+import data_access.TeamDataAccessObject;
 import entity.CommonUserFactory;
 import interface_adapter.bet_history.BetHistoryViewModel;
 import interface_adapter.login.LoginViewModel;
@@ -58,6 +59,9 @@ public class Main {
             throw new RuntimeException(e);
         }
 
+        // Create TeamDataAccess Object
+        TeamDataAccessObject teamDataAccessObject = new TeamDataAccessObject();
+
         // Initialize Views
         SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel, userDataAccessObject, userDataAccessObject);
         views.add(signupView, signupView.viewName);
@@ -71,14 +75,14 @@ public class Main {
         MenuView menuView = MenuUseCaseFactory.create(viewManagerModel, menuViewModel, loginViewModel, betPredictionViewModel, betHistoryViewModel);
         views.add(menuView, menuView.viewName);
 
-        BetPredictionView betPredictionView = new BetPredictionView(betPredictionViewModel);
+        BetPredictionView betPredictionView = BetPredictionUseCaseFactory.create(viewManagerModel,
+                                                                                betPredictionViewModel, teamDataAccessObject);
         views.add(betPredictionView, betPredictionView.viewName);
 
         BetHistoryView betHistoryView = new BetHistoryView(betHistoryViewModel);
         views.add(betHistoryView, betHistoryView.viewName);
 
         // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV
-        // viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
 
