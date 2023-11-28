@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 public class BetHistoryView extends JPanel{
 
 
+    public Object viewName;
 }
 //package interface_adapter.bet_history;
 //import interface_adapter.ViewModel;
