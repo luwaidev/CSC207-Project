@@ -1,7 +1,6 @@
 package interface_adapter.bet_history;
 
 import interface_adapter.ViewModel;
-import interface_adapter.login.LoginState;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -9,7 +8,7 @@ import java.beans.PropertyChangeSupport;
 public class BetHistoryViewModel extends ViewModel {
 
     public final String TITLE_LABEL = "Bet History";
-    private static BetHistoryState state = new BetHistoryState();
+    private BetHistoryState state = new BetHistoryState();
     public BetHistoryViewModel(){super("bet history");}
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
@@ -27,7 +26,7 @@ public class BetHistoryViewModel extends ViewModel {
 
 
     public void setState (BetHistoryState state) {this.state = state;}
-    public static BetHistoryState getState() {return state;}
+    public BetHistoryState getState() {return state;}
 
 
 }
