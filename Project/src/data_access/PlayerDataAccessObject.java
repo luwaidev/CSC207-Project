@@ -16,18 +16,43 @@ import java.util.ArrayList;
 public class PlayerDataAccessObject implements PlayerTeamDataAccessInterface, RecommendationDataAccessInterface {
 
     public static void main(String[] args) {
-        Player player1 = getPlayerStats(237, 2018);
+        Player player1 = getPlayerStats(getPlayerID("Russell", "Westbrook"));
         System.out.println(player1.getId());
         System.out.println(player1.getPointsPerGame());
         // System.out.println(player1.getName);
     }
+    public static int getPlayerID(String first, String last) {
+        int id = -1;
+        OkHttpClient client = new OkHttpClient();
 
-    public static Player getPlayerStats(int playerId, int season) throws JSONException {
+        Request request = new Request.Builder()
+                .url("https://balldontlie.io/api/v1/players?search=" + first + "&per_page=100")
+                .get()
+                .build();
+        try {
+            Response response = client.newCall(request).execute();
+            JSONObject responseBody = new JSONObject(response.body().string());
+            JSONArray responseArray = responseBody.getJSONArray("data");
+            for (int i = 0; i < responseArray.length(); i ++) {
+                JSONObject player = responseArray.getJSONObject(i);
+                if (player.getString("first_name").equals(first) && player.getString("last_name").equals(last)) {
+                    id = player.getInt("id");
+                    break; // Exit the loop once the player is found
+                }
+            }
+
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return id;
+    }
+    public static Player getPlayerStats(int playerId) throws JSONException {
         ArrayList<Integer> points = new ArrayList<>();
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("https://www.balldontlie.io/api/v1/stats?seasons[]=" + season + "&player_ids[]=" + playerId)
+                .url("https://www.balldontlie.io/api/v1/stats?seasons[]=" + 2018 + "&player_ids[]=" + playerId)
                 .get()
                 .build();
         try {
