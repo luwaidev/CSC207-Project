@@ -7,12 +7,13 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import use_case.bet_recommendation.RecommendationDataAccessInterface;
 import use_case.player_bet_predictor.PlayerTeamDataAccessInterface;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class PlayerDataAccessObject implements PlayerTeamDataAccessInterface {
+public class PlayerDataAccessObject implements PlayerTeamDataAccessInterface, RecommendationDataAccessInterface {
 
     public static void main(String[] args) {
         Player player1 = getPlayerStats(237, 2018);
@@ -66,4 +67,8 @@ public class PlayerDataAccessObject implements PlayerTeamDataAccessInterface {
         return playerPoints;
     }
 
+    @Override
+    public double player_avg(Player player) {
+        return player.getAvgPoints();
+    }
 }

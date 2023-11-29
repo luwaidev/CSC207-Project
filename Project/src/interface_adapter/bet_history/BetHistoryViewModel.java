@@ -1,45 +1,32 @@
 package interface_adapter.bet_history;
-import interface_adapter.ViewModel;
-import interface_adapter.bet_prediction.BetPredictionState;
 
-import javax.swing.*;
+import interface_adapter.ViewModel;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class BetHistoryViewModel extends ViewModel {
 
-    private static final String viewName = "Bet History";
     public final String TITLE_LABEL = "Bet History";
-    private final JTextArea history = null;
+    private BetHistoryState state = new BetHistoryState();
+    public BetHistoryViewModel(){super("bet history");}
+    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
-    public BetHistoryViewModel() {
-        super(viewName);
-    }
-
-    @Override
+    // This is what the Signup Presenter will call to let the ViewModel know
+    // to alert the View
     public void firePropertyChanged() {
-
+        support.firePropertyChange("state", null, this.state);
     }
 
-    @Override
+
+
     public void addPropertyChangeListener(PropertyChangeListener listener) {
-
+        support.addPropertyChangeListener(listener);
     }
-//    private BetPredictionState state = new BetPredictionState();
-//
-//    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
-//
-//    public void firePropertyChanged() {
-//        support.firePropertyChange("state", null, this.state);
-//    }
-//
-//
-//
-//    public void addPropertyChangeListener(PropertyChangeListener listener) {
-//        support.addPropertyChangeListener(listener);
-//    }
-//
-//
-//    public void setState (BetPredictionState state) {this.state = state;}
-//    public BetPredictionState getState() {return state;}
+
+
+    public void setState (BetHistoryState state) {this.state = state;}
+    public BetHistoryState getState() {return state;}
+
+
 }

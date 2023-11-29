@@ -1,7 +1,16 @@
 package view;
 
+import interface_adapter.bet_history.BetHistoryState;
+import interface_adapter.bet_history.BetHistoryViewModel;
+import interface_adapter.bet_prediction.BetPredictionState;
+import interface_adapter.bet_prediction.BetPredictionViewModel;
+
 import javax.swing.*;
 import java.awt.*;
+import java.beans.PropertyChangeListener;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -9,31 +18,22 @@ import java.awt.event.KeyListener;
 public class BetHistoryView extends JPanel{
 
 
+    public final String viewName = "Bet History";
+    private final BetHistoryViewModel betHistoryViewModel;
+
+
+    public BetHistoryView(BetHistoryViewModel betHistoryViewModel) {
+
+        this.betHistoryViewModel = betHistoryViewModel;
+        JLabel title = new JLabel((betHistoryViewModel.TITLE_LABEL));
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        BetHistoryState current = betHistoryViewModel.getState();
+
+
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        this.add(title);
+    }
+
 }
-//package interface_adapter.bet_history;
-//import interface_adapter.ViewModel;
-//
-//import javax.swing.*;
-//import javax.swing.text.View;
-//import java.beans.PropertyChangeListener;
-//import java.beans.PropertyChangeSupport;
-//
-//public class BetHistoryViewModel extends ViewModel {
-//
-//    public final String TITLE_LABEL = "Bet History";
-//    private final JTextArea history =
-//
-//    public BetHistoryViewModel(String viewName) {
-//        super(viewName);
-//    }
-//
-//    @Override
-//    public void firePropertyChanged() {
-//
-//    }
-//
-//    @Override
-//    public void addPropertyChangeListener(PropertyChangeListener listener) {
-//
-//    }
-//}

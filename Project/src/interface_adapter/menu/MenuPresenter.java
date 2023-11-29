@@ -25,10 +25,12 @@ public class MenuPresenter implements MenuOutputBoundary {
     public void openBetPredictor() {
         this.viewManagerModel.setActiveView(betPredictionViewModel.getViewName());
         this.viewManagerModel.firePropertyChanged();
+        System.out.println(this.viewManagerModel.getActiveView());
     }
 
     public void openBetHistory() {
         this.viewManagerModel.setActiveView(betHistoryViewModel.getViewName());
         this.viewManagerModel.firePropertyChanged();
+        System.out.println(this.viewManagerModel.getActiveView());
     }
 }
