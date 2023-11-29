@@ -79,7 +79,8 @@ public class Main {
                                                                                 betPredictionViewModel, teamDataAccessObject);
         views.add(betPredictionView, betPredictionView.viewName);
 
-        BetHistoryView betHistoryView = new BetHistoryView(betHistoryViewModel);
+        BetHistoryView betHistoryView = BetHistoryUseCaseFactory.create(viewManagerModel,
+                                                                        betHistoryViewModel);
         views.add(betHistoryView, betHistoryView.viewName);
 
         // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV

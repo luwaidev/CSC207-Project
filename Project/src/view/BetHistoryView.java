@@ -1,5 +1,6 @@
 package view;
 
+import interface_adapter.bet_history.BetHistoryController;
 import interface_adapter.bet_history.BetHistoryState;
 import interface_adapter.bet_history.BetHistoryViewModel;
 import interface_adapter.bet_prediction.BetPredictionState;
@@ -18,13 +19,16 @@ import java.awt.event.KeyListener;
 public class BetHistoryView extends JPanel{
 
 
-    public final String viewName = "Bet History";
+    public final String viewName = "bet history";
     private final BetHistoryViewModel betHistoryViewModel;
+    private final BetHistoryController betHistoryController;
 
 
-    public BetHistoryView(BetHistoryViewModel betHistoryViewModel) {
+    public BetHistoryView(BetHistoryViewModel betHistoryViewModel, BetHistoryController betHistoryController) {
 
         this.betHistoryViewModel = betHistoryViewModel;
+        this.betHistoryController = betHistoryController;
+
         JLabel title = new JLabel((betHistoryViewModel.TITLE_LABEL));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
