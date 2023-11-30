@@ -23,4 +23,8 @@ public class LoginController {
     public void skipLogin(){
         loginUseCaseInteractor.skipLogin();
     }
+
+    public void createAccount(){
+        loginUseCaseInteractor.createAccount();
+    }
 }

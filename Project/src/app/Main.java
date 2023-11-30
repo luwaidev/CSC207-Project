@@ -66,7 +66,8 @@ public class Main {
         SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel, userDataAccessObject, userDataAccessObject);
         views.add(signupView, signupView.viewName);
 
-        LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, menuViewModel, userDataAccessObject);
+        LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, menuViewModel,
+                signupViewModel, userDataAccessObject);
         views.add(loginView, loginView.viewName);
 
         LoggedInView loggedInView = new LoggedInView(loggedInViewModel);
@@ -79,7 +80,8 @@ public class Main {
                                                                                 betPredictionViewModel, teamDataAccessObject);
         views.add(betPredictionView, betPredictionView.viewName);
 
-        BetHistoryView betHistoryView = new BetHistoryView(betHistoryViewModel);
+        BetHistoryView betHistoryView = BetHistoryUseCaseFactory.create(viewManagerModel,
+                                                                        betHistoryViewModel);
         views.add(betHistoryView, betHistoryView.viewName);
 
         // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV

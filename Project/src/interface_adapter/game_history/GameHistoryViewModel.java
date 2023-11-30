@@ -1,15 +1,15 @@
-package interface_adapter.bet_history;
+package interface_adapter.game_history;
 
 import interface_adapter.ViewModel;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class BetHistoryViewModel extends ViewModel {
+public class GameHistoryViewModel extends ViewModel {
 
-    public final String TITLE_LABEL = "Bet History";
-    private BetHistoryState state = new BetHistoryState();
-    public BetHistoryViewModel(){super("bet history");}
+
+    private GameHistoryState state = new GameHistoryState();
+    public GameHistoryViewModel(){super("game history");}
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     // This is what the Signup Presenter will call to let the ViewModel know
@@ -25,8 +25,6 @@ public class BetHistoryViewModel extends ViewModel {
     }
 
 
-    public void setState (BetHistoryState state) {this.state = state;}
-    public BetHistoryState getState() {return state;}
-
-
+    public void setState (GameHistoryState state) {this.state = state;}
+    public GameHistoryState getState() {return state;}
 }
