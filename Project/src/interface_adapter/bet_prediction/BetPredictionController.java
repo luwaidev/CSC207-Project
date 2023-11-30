@@ -18,4 +18,8 @@ public class BetPredictionController {
         BetInputData betInputData = new BetInputData(team1, team2, panel);
         betUseCaseInteractor.execute(betInputData);
     }
+
+    public void setUsername(String username){
+        betUseCaseInteractor.setUsername(username);
+    }
 }
