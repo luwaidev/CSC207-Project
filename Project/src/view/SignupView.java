@@ -27,7 +27,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final ClearController clearController;
 
     private final JButton signUp;
-    private final JButton cancel;
     private final JButton login;
 
     // TODO Note: this is the new JButton for clearing the users file
@@ -53,8 +52,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         JPanel buttons = new JPanel();
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
         buttons.add(signUp);
-        cancel = new JButton(SignupViewModel.CANCEL_BUTTON_LABEL);
-        buttons.add(cancel);
         login = new JButton(SignupViewModel.LOGIN_BUTTON_LABEL);
         buttons.add(login);
 
@@ -63,7 +60,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         //      You need to add this "clear" button to the "buttons" panel.
         // DONE
         clear = new JButton(SignupViewModel.CLEAR_BUTTON_LABEL);
-        buttons.add(clear);
+//        buttons.add(clear);
 
         signUp.addActionListener(
                 // This creates an anonymous subclass of ActionListener and instantiates it.
@@ -104,8 +101,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                     }
                 }
         );
-
-        cancel.addActionListener(this);
 
         // This makes a new KeyListener implementing class, instantiates it, and
         // makes it listen to keystrokes in the usernameInputField.
