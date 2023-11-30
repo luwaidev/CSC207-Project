@@ -28,9 +28,16 @@ public class MenuPresenter implements MenuOutputBoundary {
         System.out.println(this.viewManagerModel.getActiveView());
     }
 
+    @Override
     public void openBetHistory() {
         this.viewManagerModel.setActiveView(betHistoryViewModel.getViewName());
         this.viewManagerModel.firePropertyChanged();
         System.out.println(this.viewManagerModel.getActiveView());
+    }
+
+    @Override
+    public void logout(){
+        this.viewManagerModel.setActiveView(loginViewModel.getViewName());
+        this.viewManagerModel.firePropertyChanged();
     }
 }

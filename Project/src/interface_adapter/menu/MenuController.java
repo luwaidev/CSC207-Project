@@ -13,4 +13,6 @@ public class MenuController {
     }
 
     public void openBetHistory() { menuUseCaseInteractor.openBetHistory();}
+
+    public void logout(){menuUseCaseInteractor.logout();}
 }
