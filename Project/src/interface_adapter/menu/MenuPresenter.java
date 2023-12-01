@@ -2,9 +2,12 @@ package interface_adapter.menu;
 
 import interface_adapter.ViewManagerModel;
 import interface_adapter.bet_history.BetHistoryViewModel;
+import interface_adapter.bet_prediction.BetPredictionState;
 import interface_adapter.bet_prediction.BetPredictionViewModel;
 import interface_adapter.login.LoginViewModel;
+import use_case.menu.MenuInputBoundary;
 import use_case.menu.MenuOutputBoundary;
+import use_case.menu.MenuOutputData;
 import view.ViewManager;
 
 public class MenuPresenter implements MenuOutputBoundary {
@@ -22,7 +25,15 @@ public class MenuPresenter implements MenuOutputBoundary {
     }
 
     @Override
-    public void openBetPredictor() {
+    public void openBetPredictor(MenuOutputData menuOutputData) {
+        // Update bet predictor with username
+        BetPredictionState betPredictionState =  betPredictionViewModel.getState();
+        betPredictionState.setUsername(menuOutputData.getUsername());
+        this.betPredictionViewModel.setState(betPredictionState);
+        this.betPredictionViewModel.firePropertyChanged();
+        betPredictionViewModel.firePropertyChanged();
+        System.out.println(this.betPredictionViewModel.getState().getUsername());
+
         this.viewManagerModel.setActiveView(betPredictionViewModel.getViewName());
         this.viewManagerModel.firePropertyChanged();
         System.out.println(this.viewManagerModel.getActiveView());

@@ -1,6 +1,7 @@
 package interface_adapter.bet_prediction;
 
 public class BetPredictionState {
+    private String username = "";
     private String inputA = "";
     private String inputB = "";
 
@@ -11,6 +12,8 @@ public class BetPredictionState {
 
     public BetPredictionState() {}
 
+    public String getUsername() {return username;}
+    public void setUsername(String username) {this.username = username;}
     public String getInputA() {return inputA;}
     public String getInputB() {return inputB;}
     public void setInputA(String inputA){this.inputA = inputA;}
