@@ -10,26 +10,15 @@ import javax.swing.*;
 
 
 public class RecommendPresenter implements RecommendationOutputBoundary {
-    private final MenuViewModel menuViewModel;
-    private ViewManagerModel viewManagerModel;
 
-    public RecommendPresenter(MenuViewModel menuViewModel,ViewManagerModel viewManagerModel) {
-        this.menuViewModel = menuViewModel;
-        this.viewManagerModel = viewManagerModel;
+    public RecommendPresenter() {
 
-        this.viewManagerModel.setActiveView(menuViewModel.getViewName());
-        this.viewManagerModel.firePropertyChanged();
     }
 
     @Override
     public void prepareSuccessView(RecommendationOutputData recommendation) {
         JOptionPane.showMessageDialog(recommendation.panel, recommendation.getBet_recommendation());
 
-        MenuState menuState = menuViewModel.getState();
-        this.menuViewModel.setState(menuState);
-        this.menuViewModel.firePropertyChanged();
-        this.viewManagerModel.setActiveView(menuViewModel.getViewName());
-        this.viewManagerModel.firePropertyChanged();
     }
 
     @Override

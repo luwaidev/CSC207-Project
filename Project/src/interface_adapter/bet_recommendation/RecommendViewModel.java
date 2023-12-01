@@ -8,7 +8,8 @@ import java.beans.PropertyChangeSupport;
 
 public class RecommendViewModel extends ViewModel {
     public final String TITLE_LABEL = "Bet Recommendation";
-    public final String INPUT_A_LABEL = "Favorite Player";
+    public final String INPUT_A_LABEL = "Favorite Player First Name";
+    public final String INPUT_B_LABEL = "Favorite Player Last Name";
     public final String RECOMMEND_BUTTON_LABEL = "Generate Recommendation";
 
     private static RecommendState state = new RecommendState();
@@ -26,6 +27,7 @@ public class RecommendViewModel extends ViewModel {
     }
     public void setState (RecommendState state) {this.state = state;}
     public static RecommendState getState() {return state;}
+
 
 
 }
