@@ -9,6 +9,7 @@ public class BetInteractor implements BetInputBoundary {
     // data access interface is a problem for later lol
 
     final BetOutputBoundary betPresenter;
+    private String username = "username";
 
     public BetInteractor(BetTeamDataAccessInterface userDataAccessInterface, BetOutputBoundary betOutputBoundary){
         this.userDataAccessObject = userDataAccessInterface;
@@ -38,5 +39,11 @@ public class BetInteractor implements BetInputBoundary {
             betPresenter.prepareFailView(betWinner);
         }
 
+    }
+
+    @Override
+    public void setUsername(String username){
+        this.username = username;
+        System.out.println("Username set to: " + username + " in BetInteractor");
     }
 }

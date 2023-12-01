@@ -16,4 +16,5 @@ public class BetPresenter implements BetOutputBoundary {
     public void prepareFailView(BetOutputData teams) {
         JOptionPane.showMessageDialog(teams.panel,"Invalid Player" );
     }
+
 }

@@ -8,10 +8,11 @@ public class BetOutputData {
     private boolean useCaseFailed;
     public JPanel panel;
 
-    public BetOutputData(String higherwin_team, JPanel panel ) {
+    public BetOutputData(String higherwin_team, JPanel panel) {
         this.higherwinpct_team = higherwin_team;
         this.panel = panel;
-}
+    }
+
     public String getHigherwinpct_team() {
         return this.higherwinpct_team;
     }
