@@ -50,4 +50,9 @@ public class BetInteractor implements BetInputBoundary {
         this.username = username;
         System.out.println("Username set to: " + username + " in BetInteractor");
     }
+
+    @Override
+    public void backToMain() {
+        betPresenter.backToMain();
+    }
 }

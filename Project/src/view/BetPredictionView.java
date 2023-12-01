@@ -113,6 +113,7 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         if (e.getSource().equals(back)){
+                            betPredictionController.backToMain();
                             //add code to switch back to main menu;
                         }
                     }

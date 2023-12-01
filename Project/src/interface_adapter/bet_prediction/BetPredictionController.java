@@ -22,4 +22,6 @@ public class BetPredictionController {
     public void setUsername(String username){
         betUseCaseInteractor.setUsername(username);
     }
+
+    public void backToMain() {betUseCaseInteractor.backToMain();}
 }

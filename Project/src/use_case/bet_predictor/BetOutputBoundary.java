@@ -6,5 +6,7 @@ public interface BetOutputBoundary {
 
     void prepareFailView(BetOutputData team);
 
+    void backToMain();
+
 
 }
