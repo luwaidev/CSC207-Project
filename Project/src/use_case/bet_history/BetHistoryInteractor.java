@@ -9,11 +9,11 @@ public class BetHistoryInteractor implements BetHistoryInputBoundary {
         this.betHistoryPresenter = betHistoryPresenter;
 
     }
-    public void savetoHistory (User user, String team1, String team2, String winningTeam) {
-        String bet = user.getName() + team1 + team2 + winningTeam;
+    public void savetoHistory (String user, String team1, String team2, String winningTeam) {
+        String bet = user+ team1 + team2 + winningTeam;
         BetHistory.setBetHistory(user, bet);
     }
-    public void getHistory (User user) {
+    public void getHistory (String user) {
         BetHistory.getBetHistory(user);
     }
 

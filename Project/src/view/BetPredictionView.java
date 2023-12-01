@@ -24,6 +24,7 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
     final JTextField inputFieldB = new JTextField(15);
 
     final JButton predict;
+    final JButton back;
 
     public BetPredictionView(BetPredictionViewModel bpViewModel, BetPredictionController betPredictionController){
 
@@ -45,9 +46,13 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
         LabelTextPanel inputB = new LabelTextPanel(new JLabel(bpViewModel.INPUT_B_LABEL),inputFieldB);
         teamInputs.add(inputB);
 
-        // Predict Bet Button
+        // Predict Bet Button & Back Button
+        JPanel buttons = new JPanel();
+
         predict = new JButton(bpViewModel.PREDICT_BUTTON_LABEL);
-        predict.setAlignmentX(Component.CENTER_ALIGNMENT);
+        back = new JButton(bpViewModel.BACK_BUTTON_LABEL);
+        buttons.add(predict);
+        buttons.add(back);
 
         //Set Input Field Key Listeners
         inputFieldA.addKeyListener(new KeyListener() {
@@ -96,11 +101,21 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
                         if (e.getSource().equals(predict)) {
                             BetPredictionState current = bpViewModel.getState();
 
-                            betPredictionController.execute(current.getInputA(), current.getInputB(), panel);
+                            betPredictionController.execute(current.getInputA(), current.getInputB(), String.valueOf(username), panel);
 
                         }
                     }
 
+                }
+        );
+        back.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(back)){
+                            //add code to switch back to main menu;
+                        }
+                    }
                 }
         );
 
@@ -110,7 +125,7 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
         this.add(title);
         this.add(username);
         this.add(teamInputs);
-        this.add(predict);
+        this.add(buttons);
     }
 
     /**

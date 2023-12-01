@@ -14,8 +14,8 @@ public class BetPredictionController {
     }
 
 
-    public void execute(String team1, String team2, JPanel panel) {
-        BetInputData betInputData = new BetInputData(team1, team2, panel);
+    public void execute(String team1, String team2, String username, JPanel panel) {
+        BetInputData betInputData = new BetInputData(team1, team2, username, panel);
         betUseCaseInteractor.execute(betInputData);
     }
 
