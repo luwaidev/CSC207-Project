@@ -9,8 +9,8 @@ public class PlayerController {
         this.playerInteractor = playerInteractor;
     }
 
-    public void execute(String player){
-        PlayerInputData playerInputData = new PlayerInputData(player);
+    public void execute(String firstName, String lastName){
+        PlayerInputData playerInputData = new PlayerInputData(firstName, lastName);
         playerInteractor.execute(playerInputData);
     }
 }

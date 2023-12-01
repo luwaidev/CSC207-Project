@@ -5,9 +5,8 @@ public class PlayerOutputData {
 
     private boolean useCaseFailed;
 
-    public PlayerOutputData(double likelyPointNum, boolean useCaseFailed){
-        this.likelyPointNum = likelyPointNum;
-        this.useCaseFailed = useCaseFailed;
+    public PlayerOutputData(String likelyPointNum){
+        this.likelyPointNum = Double.parseDouble(likelyPointNum);
     }
     public double getLikelyPointNum(){
         return this.likelyPointNum;

@@ -3,10 +3,8 @@ import data_access.TeamDataAccessObject;
 import entity.Team;
 
 public class BetInteractor implements BetInputBoundary {
-    // this class is for making predictions b/w two teams
 
     final BetTeamDataAccessInterface userDataAccessObject;
-    // data access interface is a problem for later lol
 
     final BetOutputBoundary betPresenter;
 
