@@ -39,6 +39,7 @@ public class BetRecommendView extends JPanel implements ActionListener, Property
         buttons.add(inputPlayer);
         buttons.add(inputPlayer1);
 
+
         recommend = new JButton(recommendViewModel.RECOMMEND_BUTTON_LABEL);
         recommend.setAlignmentX(Component.CENTER_ALIGNMENT);
         JPanel panel = this;

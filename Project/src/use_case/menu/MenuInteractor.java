@@ -18,6 +18,7 @@ public class MenuInteractor implements MenuInputBoundary{
     @Override
     public void logout(){menuPresenter.logout();}
 
+
     public void openBetRecommendation(){menuPresenter.openBetRecommendation();}
 
 }

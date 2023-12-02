@@ -47,6 +47,7 @@ public class MenuPresenter implements MenuOutputBoundary {
     }
     public void openBetRecommendation(){
         this.viewManagerModel.setActiveView(recommendViewModel.getViewName());
+
         this.viewManagerModel.firePropertyChanged();
         System.out.println(this.viewManagerModel.getActiveView());
     }
