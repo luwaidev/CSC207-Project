@@ -1,6 +1,10 @@
 package use_case.player_bet_predictor;
 
+import data_access.PlayerDataAccessObject;
 import entity.Player;
+import use_case.player_bet_predictor.calculatePlayerAverage.Context;
+import use_case.player_bet_predictor.calculatePlayerAverage.meanPlayerCalculator;
+import use_case.player_bet_predictor.calculatePlayerAverage.rangePlayerCalculatorOverlap;
 
 import java.util.ArrayList;
 
@@ -17,15 +21,15 @@ public class PlayerInteractor implements PlayerInputBoundary {
     }
     @Override
     public void execute(PlayerInputData playerInputData) {
-        String playerName = playerInputData.getPlayerName();
+        String playerFirstName = playerInputData.getFirstName();
+        String playerLastName = playerInputData.getLastName();
 
-        // use player name to find ID in DAO
+        ArrayList<Integer> player = PlayerDataAccessObject.getPlayerStats(PlayerDataAccessObject.getPlayerID(playerFirstName, playerLastName));
 
-        // if ID is found in DAO, take the list of points
+        Context context = new Context(new rangePlayerCalculatorOverlap());
 
-        // now calculate the average
-
-
+        PlayerOutputData pointsWon = new PlayerOutputData(context.executeStrategy(player));
+        playerPresenter.prepareSuccessView(pointsWon);
 
     }
 }
