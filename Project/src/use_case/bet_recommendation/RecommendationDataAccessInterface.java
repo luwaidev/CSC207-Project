@@ -5,4 +5,5 @@ import entity.Player;
 public interface RecommendationDataAccessInterface {
     double player_avg(Player player);
 
+
 }

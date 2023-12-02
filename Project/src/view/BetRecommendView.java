@@ -96,6 +96,7 @@ public class BetRecommendView extends JPanel implements ActionListener, Property
 
         this.add(title);
         this.add(buttons);
+        this.add(recommend);
         this.add(inputPlayer);
         this.add(playerError);
         this.add(inputPlayer1);
