@@ -13,7 +13,6 @@ public class BetHistoryInteractor implements BetHistoryInputBoundary {
     }
     @Override
     public void execute(BetHistoryInputData betHistoryInputData) {
-        System.out.println("user:" + username);
         history = String.valueOf(BetHistory.getBetHistory(username));
         betHistoryPresenter.sendHistory(history);
     }

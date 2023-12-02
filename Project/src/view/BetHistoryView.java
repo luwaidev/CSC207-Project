@@ -10,9 +10,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 
-public class BetHistoryView extends JPanel{
+public class BetHistoryView extends JPanel implements ActionListener, PropertyChangeListener {
 
 
     public final String viewName = "bet history";
@@ -24,6 +25,7 @@ public class BetHistoryView extends JPanel{
 
         this.betHistoryViewModel = betHistoryViewModel;
         this.betHistoryController = betHistoryController;
+        this.betHistoryViewModel.addPropertyChangeListener(this);
 
         JLabel title = new JLabel((betHistoryViewModel.TITLE_LABEL));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -39,13 +41,10 @@ public class BetHistoryView extends JPanel{
                     public void actionPerformed(ActionEvent e) {
                         if (e.getSource().equals(back)){
                             betHistoryController.backToMain();
-                            //add code to switch back to main menu;
                         }
                     }
                 }
         );
-
-
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -56,6 +55,20 @@ public class BetHistoryView extends JPanel{
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Click " + evt.getActionCommand());
     }
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        BetHistoryState state = (BetHistoryState) evt.getNewValue();
 
+        // Might be bad to just override state completely itself
+        // might want to just update username value, but this works for now
+        betHistoryViewModel.setState(state);
+
+        // Update username display
+        //username.setText(state.getUsername());
+
+        // Update username in interactor
+        betHistoryController.setUsername(state.getUsername());
+
+    }
 
 }

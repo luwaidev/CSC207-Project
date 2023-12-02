@@ -6,7 +6,7 @@ public class BetHistoryState {
     private String username = "";
 
     public BetHistoryState(BetHistoryState copy) {
-        //potentially add in username = copy.username;
+        username = copy.username;
     }
 
     // Because of the previous copy constructor, the default constructor must be explicit.

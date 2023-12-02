@@ -13,10 +13,9 @@ public class BetHistoryController {
         betHistoryUseCaseInteractor.setUsername(username);
     }
     public void execute(String username) {
-        BetHistoryInputData betHistoryInputData = new BetHistoryInputData(username);
+        BetHistoryInputData betHistoryInputData = new BetHistoryInputData();
         betHistoryUseCaseInteractor.execute(betHistoryInputData);
     }
-
 
     public void backToMain() {betHistoryUseCaseInteractor.backToMain();}
 }

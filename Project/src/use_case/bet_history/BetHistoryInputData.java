@@ -1,9 +1,9 @@
 package use_case.bet_history;
 
 public class BetHistoryInputData {
-    private final String username;
-    public BetHistoryInputData(String username) {
-        this.username = username;
+    private String username;
+
+    public BetHistoryInputData() {
     }
     String getUsername() {return this.username;}
 
