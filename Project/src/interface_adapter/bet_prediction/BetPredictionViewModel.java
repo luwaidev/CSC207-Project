@@ -12,6 +12,7 @@ public class BetPredictionViewModel extends ViewModel {
     public final String INPUT_A_LABEL = "Team One";
     public final String INPUT_B_LABEL = "Team Two";
 
+    public final String BACK_BUTTON_LABEL = "Back";
     public final String PREDICT_BUTTON_LABEL = "Predict Winner";
 
     private BetPredictionState state = new BetPredictionState();

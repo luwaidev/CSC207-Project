@@ -14,7 +14,10 @@ public class MenuController {
         menuUseCaseInteractor.openBetPredictor(menuInputData);
     }
 
-    public void openBetHistory() { menuUseCaseInteractor.openBetHistory();}
+    public void openBetHistory(String username) {
+        MenuInputData menuInputData = new MenuInputData(username);
+        menuUseCaseInteractor.openBetHistory(menuInputData);
+    }
 
     public void logout(){menuUseCaseInteractor.logout();}
 }

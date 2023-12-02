@@ -5,4 +5,6 @@ public interface BetInputBoundary {
     void execute(BetInputData betInputData);
 
     void setUsername(String username);
+
+    void backToMain();
 }
