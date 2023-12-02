@@ -1,8 +1,9 @@
 package use_case.menu;
 
 public interface MenuOutputBoundary {
-    public void openBetPredictor();
+    public void openBetPredictor(MenuOutputData menuOutputData);
 
-    public void openBetHistory();
+    public void openBetHistory(MenuOutputData menuOutputData);
+
     public void logout();
 }

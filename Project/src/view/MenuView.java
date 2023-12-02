@@ -47,13 +47,13 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         betPrediction.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                menuController.openBetPredictor();
+                menuController.openBetPredictor(menuViewModel.getState().getUsername());
             }
         });
 
         betHistory.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) { menuController.openBetHistory(); }
+            public void actionPerformed(ActionEvent e) { menuController.openBetHistory(menuViewModel.getState().getUsername()); }
         });
 
         logOut.addActionListener(new ActionListener() {
@@ -79,6 +79,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         MenuState state = (MenuState) evt.getNewValue();
+        menuViewModel.setState(state);
         username.setText(state.getUsername());
     }
 
