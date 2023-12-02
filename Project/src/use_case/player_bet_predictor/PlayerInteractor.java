@@ -12,6 +12,7 @@ public class PlayerInteractor implements PlayerInputBoundary {
 
     final PlayerTeamDataAccessInterface playerDataAccessObject;
     final PlayerOutputBoundary playerPresenter;
+    private String username = "username";
 
     public PlayerInteractor(PlayerTeamDataAccessInterface playerDataAccessInterface,
                                     PlayerOutputBoundary playerOutputBoundary) {
@@ -28,8 +29,20 @@ public class PlayerInteractor implements PlayerInputBoundary {
 
         Context context = new Context(new rangePlayerCalculatorOverlap());
 
-        PlayerOutputData pointsWon = new PlayerOutputData(context.executeStrategy(player));
+        PlayerOutputData pointsWon = new PlayerOutputData(context.executeStrategy(player), playerInputData.panel);
         playerPresenter.prepareSuccessView(pointsWon);
+
+    }
+
+    @Override
+    public void setUsername(String username) {
+        this.username = username;
+        System.out.println("Username set to: " + username + " in BetInteractor");
+    }
+
+    @Override
+    public void backToMain() {
+        playerPresenter.backToMain();
 
     }
 }
