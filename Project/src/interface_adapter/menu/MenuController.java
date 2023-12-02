@@ -19,5 +19,8 @@ public class MenuController {
         menuUseCaseInteractor.openBetHistory(menuInputData);
     }
 
+    public void openBetRecommendation() {menuUseCaseInteractor.openBetRecommendation();
+    }
+
     public void logout(){menuUseCaseInteractor.logout();}
 }
