@@ -81,7 +81,7 @@ public class Main {
         views.add(betPredictionView, betPredictionView.viewName);
 
         BetHistoryView betHistoryView = BetHistoryUseCaseFactory.create(viewManagerModel,
-                                                                        betHistoryViewModel);
+                                                                        betHistoryViewModel, menuViewModel);
         views.add(betHistoryView, betHistoryView.viewName);
 
         // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV
