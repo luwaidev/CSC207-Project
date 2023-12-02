@@ -1,21 +1,16 @@
 package use_case.bet_history;
-import entity.User;
 import entity.BetHistory;
-import use_case.bet_predictor.BetOutputBoundary;
 
 public class BetHistoryInteractor implements BetHistoryInputBoundary {
     final BetHistoryOutputBoundary betHistoryPresenter;
     private String username = "username";
-    public String history = "";
+    public String history = "history";
     public BetHistoryInteractor(BetHistoryOutputBoundary betHistoryPresenter) {
         this.betHistoryPresenter = betHistoryPresenter;
-
     }
     @Override
-    public void execute(BetHistoryInputData betHistoryInputData) {
-        System.out.println("user:" + username);
-        history = String.valueOf(BetHistory.getBetHistory(username));
-        betHistoryPresenter.sendHistory(history);
+    public void setHistory(String betHistoryInputData) {
+        this.history = String.valueOf(BetHistory.getBetHistory(username));
     }
     @Override
     public void setUsername(String username) {
@@ -26,6 +21,7 @@ public class BetHistoryInteractor implements BetHistoryInputBoundary {
     public void backToMain() {
         betHistoryPresenter.backToMain();
     }
+
 
 
 }

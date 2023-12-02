@@ -2,7 +2,8 @@ package use_case.bet_history;
 
 
 public interface BetHistoryInputBoundary {
-    void execute(BetHistoryInputData betHistoryInputData);
+    void setHistory(String username);
+
     void setUsername(String username);
     void backToMain();
 }

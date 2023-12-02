@@ -16,10 +16,10 @@ public class BetHistoryPresenter implements BetHistoryOutputBoundary {
         this.menuViewModel = menuViewModel;
     }
 
-    @Override
-    public void sendHistory(String history) {
-        betHistoryViewModel.HISTORY = history;
-    }
+//    @Override
+//    public void sendHistory(String history) {
+//        betHistoryViewModel.HISTORY = history;
+//    }
 
     @Override
     public void backToMain() {
