@@ -12,6 +12,7 @@ public class MenuViewModel extends ViewModel {
     public final String BET_PREDICTION_BUTTON = "Predict a Bet";
     public final String LOG_OUT_BUTTON = "Log Out";
     public final String BET_HISTORY_BUTTON = "Bet History";
+    public final String BET_RECOMMENDATION_BUTTON = "Bet Recommendation";
     private MenuState state = new MenuState();
     public MenuViewModel(){super("menu");}
 

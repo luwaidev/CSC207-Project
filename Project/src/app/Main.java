@@ -1,9 +1,11 @@
 package app;
 
 import data_access.FileUserDataAccessObject;
+import data_access.PlayerDataAccessObject;
 import data_access.TeamDataAccessObject;
 import entity.CommonUserFactory;
 import interface_adapter.bet_history.BetHistoryViewModel;
+import interface_adapter.bet_recommendation.RecommendViewModel;
 import interface_adapter.login.LoginViewModel;
 import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.menu.MenuViewModel;
@@ -50,6 +52,7 @@ public class Main {
         MenuViewModel menuViewModel = new MenuViewModel();
         BetPredictionViewModel betPredictionViewModel = new BetPredictionViewModel();
         BetHistoryViewModel betHistoryViewModel = new BetHistoryViewModel();
+        RecommendViewModel recommendViewModel = new RecommendViewModel();
 
         // Create UserDataAccess Object
         FileUserDataAccessObject userDataAccessObject;
@@ -61,6 +64,7 @@ public class Main {
 
         // Create TeamDataAccess Object
         TeamDataAccessObject teamDataAccessObject = new TeamDataAccessObject();
+        PlayerDataAccessObject playerDataAccessObject = new PlayerDataAccessObject();
 
         // Initialize Views
         SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel, userDataAccessObject, userDataAccessObject);
@@ -73,7 +77,7 @@ public class Main {
         LoggedInView loggedInView = new LoggedInView(loggedInViewModel);
         views.add(loggedInView, loggedInView.viewName);
 
-        MenuView menuView = MenuUseCaseFactory.create(viewManagerModel, menuViewModel, loginViewModel, betPredictionViewModel, betHistoryViewModel);
+        MenuView menuView = MenuUseCaseFactory.create(viewManagerModel, menuViewModel, loginViewModel, betPredictionViewModel, betHistoryViewModel, recommendViewModel);
         views.add(menuView, menuView.viewName);
 
         BetPredictionView betPredictionView = BetPredictionUseCaseFactory.create(viewManagerModel,
@@ -84,7 +88,10 @@ public class Main {
                                                                         betHistoryViewModel);
         views.add(betHistoryView, betHistoryView.viewName);
 
-        // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV
+        BetRecommendView betRecommendView = BetRecommendationUseCaseFactory.create(viewManagerModel, recommendViewModel, playerDataAccessObject);
+        views.add(betRecommendView,betRecommendView.viewName);
+
+    // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
 

@@ -6,4 +6,6 @@ public interface MenuInputBoundary {
     public void openBetHistory();
 
     public void logout();
+
+    public void openBetRecommendation();
 }

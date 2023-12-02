@@ -23,6 +23,8 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
     final JButton betPrediction;
     final JButton logOut;
     final JButton betHistory;
+    final JButton betRecommendation;
+
     public MenuView(MenuViewModel menuViewModel, MenuController menuController) {
         this.menuViewModel = menuViewModel;
         this.menuController = menuController;
@@ -41,8 +43,18 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         betHistory = new JButton(menuViewModel.BET_HISTORY_BUTTON);
         buttons.add(betHistory);
 
+        betRecommendation = new JButton(menuViewModel.BET_RECOMMENDATION_BUTTON);
+        buttons.add(betRecommendation);
         logOut = new JButton(menuViewModel.LOG_OUT_BUTTON);
         buttons.add(logOut);
+
+
+        betRecommendation.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                menuController.openBetRecommendation();
+            }
+        });
 
         betPrediction.addActionListener(new ActionListener() {
             @Override

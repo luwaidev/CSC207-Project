@@ -14,6 +14,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class BetRecommendView extends JPanel implements ActionListener, PropertyChangeListener {
+    public final String viewName = "bet recommendation";
     private final RecommendViewModel recommendViewModel;
     private final RecommendController recommendController;
 
