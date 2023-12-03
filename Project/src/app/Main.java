@@ -26,7 +26,7 @@ public class Main {
         // various cards, and the layout, and stitch them together.
 
         // The main application window.
-        JFrame application = new JFrame("Sports Betting");
+        JFrame application = new JFrame("SportSmart");
         application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         CardLayout cardLayout = new CardLayout();
@@ -95,7 +95,26 @@ public class Main {
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
 
-        application.pack();
+        // STYLING GUIDE
+        // Colors
+        // #1e1e1e - Main background color
+        // #181818 - Darker background color
+        // #A3B7FF - Light blue Highlight
+
+        // Set size
+        application.setSize(new Dimension(1024, 768));
+        application.setResizable(false);
+
+        application.setBackground(Color.decode("#1e1e1e"));
+//        application.pack();
         application.setVisible(true);
+
+        // List fonts
+//        String fonts[] =
+//                GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+//
+//        for (int i = 0; i < fonts.length; i++) {
+//            System.out.println(fonts[i]);
+//        }
     }
 }

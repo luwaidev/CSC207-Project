@@ -8,11 +8,16 @@ import java.beans.PropertyChangeSupport;
 
 public class MenuViewModel extends ViewModel {
 
-    public final String TITLE_LABEL = "Main Menu";
-    public final String BET_PREDICTION_BUTTON = "Predict a Bet";
-    public final String LOG_OUT_BUTTON = "Log Out";
+    public final String TITLE_LABEL = "SPORTSMART";
+    public final String USER_WELCOME_LABEL = "Welcome, ";
+    public final String USER_WELCOME_SUBLABEL = "what would you like to do? ";
+    public final String BET_PREDICTION_BUTTON = "Bet Prediction";
+    public final String BET_PREDICTION_BUTTON_DESCRIPTION = "Input two teams, and have our state of the art algorithms determine which is a better bet";
     public final String BET_HISTORY_BUTTON = "Bet History";
+    public final String BET_HISTORY_BUTTON_DESCRIPTION = "Input two teams, and have our state of the art algorithms determine which is a better bet";
+    public final String LOG_OUT_BUTTON = "Log Out";
     public final String BET_RECOMMENDATION_BUTTON = "Bet Recommendation";
+  
     private MenuState state = new MenuState();
 
     public MenuViewModel(){super("menu");}

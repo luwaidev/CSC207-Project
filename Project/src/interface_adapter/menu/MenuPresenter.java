@@ -31,12 +31,10 @@ public class MenuPresenter implements MenuOutputBoundary {
     @Override
     public void openBetPredictor(MenuOutputData menuOutputData) {
         // Update bet predictor with username
-        BetPredictionState betPredictionState =  betPredictionViewModel.getState();
+        BetPredictionState betPredictionState = betPredictionViewModel.getState();
         betPredictionState.setUsername(menuOutputData.getUsername());
-        this.betPredictionViewModel.setState(betPredictionState);
-        this.betPredictionViewModel.firePropertyChanged();
+        betPredictionViewModel.setState(betPredictionState);
         betPredictionViewModel.firePropertyChanged();
-        System.out.println(this.betPredictionViewModel.getState().getUsername());
 
         this.viewManagerModel.setActiveView(betPredictionViewModel.getViewName());
         this.viewManagerModel.firePropertyChanged();

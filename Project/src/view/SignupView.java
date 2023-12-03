@@ -39,20 +39,70 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         this.signupViewModel = signupViewModel;
         signupViewModel.addPropertyChangeListener(this);
 
-        JLabel title = new JLabel(SignupViewModel.TITLE_LABEL);
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // Style
+        JPanel panel = this;
+        panel.setBackground(Color.decode("#1e1e1e"));
 
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(null);
+
+        JLabel title = new JLabel(SignupViewModel.TITLE_LABEL, SwingConstants.LEFT);
+        title.setFont(new Font("Futura", Font.BOLD, 94));
+        title.setForeground(Color.decode("#A3B7FF"));
+        title.setBounds(50, 40, 900, 100);
+
+        titlePanel.setBackground(Color.decode("#181818"));
+        titlePanel.setBounds(0, 0, 1024, 180);
+        titlePanel.add(title);
+
+        JLabel subtitle = new JLabel(SignupViewModel.SUBTITLE_LABEL, SwingConstants.LEFT);
+        subtitle.setFont(new Font("Futura", Font.BOLD, 48));
+        subtitle.setBackground(Color.decode("#1e1e1e"));
+        subtitle.setForeground(Color.white);
+        subtitle.setBounds(50, 200, 900, 100);
+        JPanel subtitleUnderline = new JPanel();;
+        subtitleUnderline.setBackground(Color.white);
+        subtitleUnderline.setBounds(50, 305, 175, 2);
+
+        JLabel usernameLabel = new JLabel(SignupViewModel.USERNAME_LABEL, SwingConstants.LEFT);
         LabelTextPanel usernameInfo = new LabelTextPanel(
-                new JLabel(SignupViewModel.USERNAME_LABEL), usernameInputField);
+                usernameLabel, usernameInputField);
+        usernameLabel.setForeground(Color.white);
+        usernameLabel.setFont(new Font("Futura", Font.BOLD, 30));
+        usernameInfo.setBackground(Color.decode("#1e1e1e"));
+        usernameInfo.setBounds(-240, 350, 900, 50);
+
+        JLabel passwordLabel = new JLabel(SignupViewModel.PASSWORD_LABEL);
         LabelTextPanel passwordInfo = new LabelTextPanel(
-                new JLabel(SignupViewModel.PASSWORD_LABEL), passwordInputField);
+                passwordLabel, passwordInputField);
+        passwordLabel.setFont(new Font("Futura", Font.BOLD, 30));
+        passwordLabel.setForeground(Color.white);
+        passwordInfo.setBackground(Color.decode("#1e1e1e"));
+        passwordInfo.setBounds(-242, 400, 900, 50);
+
+        JLabel repeatPasswordLabel = new JLabel(SignupViewModel.REPEAT_PASSWORD_LABEL);
         LabelTextPanel repeatPasswordInfo = new LabelTextPanel(
-                new JLabel(SignupViewModel.REPEAT_PASSWORD_LABEL), repeatPasswordInputField);
+                repeatPasswordLabel, repeatPasswordInputField);
+        repeatPasswordLabel.setFont(new Font("Futura", Font.BOLD, 30));
+        repeatPasswordLabel.setForeground(Color.white);
+        repeatPasswordInfo.setBackground(Color.decode("#1e1e1e"));
+        repeatPasswordInfo.setBounds(-188, 450, 900, 100);
+
+        JPanel line = new JPanel();
+        line.setBackground(Color.white);
+        line.setBounds(44, 600, 938, 2);
 
         JPanel buttons = new JPanel();
+        buttons.setBackground(Color.decode("#1e1e1e"));
+        buttons.setBounds(-278, 650, 1024, 100);
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
+        signUp.setBackground(Color.decode("#FFFFFF"));
+        signUp.setFont(new Font("Futura", Font.BOLD, 20));
         buttons.add(signUp);
+
         login = new JButton(SignupViewModel.LOGIN_BUTTON_LABEL);
+        login.setFont(new Font("Futura", Font.BOLD, 20));
+        login.setBackground(Color.decode("#FFFFFF"));
         buttons.add(login);
 
         // TODO Note: the following line instantiates the "clear" button; it uses
@@ -79,7 +129,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 }
         );
 
-        JPanel panel = this;
+
         // TODO Add the body to the actionPerformed method of the action listener below
         //      for the "clear" button. You'll need to write the controller before
         //      you can complete this.
@@ -167,12 +217,16 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 }
         );
 
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+//        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        this.add(title);
+        this.setLayout(null);
+        this.add(titlePanel);
+        this.add(subtitle);
+        this.add(subtitleUnderline);
         this.add(usernameInfo);
         this.add(passwordInfo);
         this.add(repeatPasswordInfo);
+        this.add(line);
         this.add(buttons);
     }
 

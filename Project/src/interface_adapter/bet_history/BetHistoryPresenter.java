@@ -18,7 +18,10 @@ public class BetHistoryPresenter implements BetHistoryOutputBoundary {
 
     @Override
     public void sendHistory(String history) {
-        betHistoryViewModel.HISTORY = history;
+        BetHistoryState betHistoryState = betHistoryViewModel.getState();
+        betHistoryState.setHistory(history);
+        betHistoryViewModel.setState(betHistoryState);
+        betHistoryViewModel.firePropertyChanged();
     }
 
     @Override

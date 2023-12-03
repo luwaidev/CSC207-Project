@@ -2,6 +2,7 @@ package use_case.bet_predictor;
 import data_access.TeamDataAccessObject;
 import entity.BetHistory;
 import entity.Team;
+import interface_adapter.bet_history.BetHistoryController;
 
 
 public class BetInteractor implements BetInputBoundary {
@@ -28,12 +29,15 @@ public class BetInteractor implements BetInputBoundary {
             String bet = team1 + " will beat " + team2;
             BetHistory.setBetHistory(username, bet);
             betPresenter.prepareSuccessView(betWinner);
+            System.out.println(BetHistory.getBetHistory(username));
         }
         else if (fteam.getAvg_points() < steam.getAvg_points()) {
             BetOutputData betWinner = new BetOutputData(team2, betInputData.panel);
             String bet = team2 + " will beat " + team1;
             BetHistory.setBetHistory(username, bet);
             betPresenter.prepareSuccessView(betWinner);
+            System.out.println(BetHistory.getBetHistory(username));
+
         }
         else{
             BetOutputData betWinner = new BetOutputData(error, betInputData.panel);
