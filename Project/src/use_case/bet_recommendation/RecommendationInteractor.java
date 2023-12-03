@@ -28,6 +28,8 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
 
 
         Player fav_player = PlayerDataAccessObject.getPlayerStats(PlayerDataAccessObject.getPlayerID(first_name, last_name));
+        if (fav_player.getId() != -1) {
+
         ArrayList <Integer> points = fav_player.getPointsPerGame();
 
         Double over_avg = Math.round(fav_player.avg(points,points.size())) + 0.5;
@@ -46,5 +48,9 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
             RecommendationOutputData output = new RecommendationOutputData(out, recommendationInputData.panel);
             recommendPresenter.prepareSuccessView(output);
         }
-    }
+        else {RecommendationOutputData output = new RecommendationOutputData(error, recommendationInputData.panel);
+            recommendPresenter.prepareFailView(output);
+
+        }
+    }}
 
