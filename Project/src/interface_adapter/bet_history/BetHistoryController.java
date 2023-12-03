@@ -18,4 +18,7 @@ public class BetHistoryController {
     public void setHistory(String username) {
         betHistoryUseCaseInteractor.setHistory(username);
     }
+    public String getHistory(String username) {
+        return betHistoryUseCaseInteractor.getHistory(username);
+    }
 }

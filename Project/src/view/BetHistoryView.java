@@ -29,9 +29,10 @@ public class BetHistoryView extends JPanel implements ActionListener, PropertyCh
         this.betHistoryController = betHistoryController;
         this.betHistoryViewModel.addPropertyChangeListener(this);
 
+
         JLabel title = new JLabel((betHistoryViewModel.TITLE_LABEL));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        JTextArea history = new JTextArea((betHistoryViewModel.HISTORY));
+//        history = new JTextArea((betHistoryViewModel.HISTORY));
         back = new JButton(betHistoryViewModel.BACK_BUTTON_LABEL);
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
         back.setAlignmentY(Component.BOTTOM_ALIGNMENT);
@@ -64,20 +65,15 @@ public class BetHistoryView extends JPanel implements ActionListener, PropertyCh
     public void propertyChange(PropertyChangeEvent evt) {
         BetHistoryState state = (BetHistoryState) evt.getNewValue();
 
-        // Might be bad to just override state completely itself
-        // might want to just update username value, but this works for now
-        betHistoryViewModel.setState(state);
-
-        history.setText(state.getHistory());
-
         // Update username display
         username.setText(state.getUsername());
-
         // Update username in interactor
         betHistoryController.setUsername(state.getUsername());
+//            betHistoryController.setHistory(state.getHistory());
 
-        betHistoryController.setHistory(String.valueOf(username));
 
+
+        history.setText(betHistoryController.getHistory(state.getUsername()));
     }
 
 }

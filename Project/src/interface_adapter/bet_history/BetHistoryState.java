@@ -13,7 +13,7 @@ public class BetHistoryState {
     public BetHistoryState() {}
     public String getUsername() {return username;}
     public String getHistory() {return history;}
-    public void setHistory() {this.history = history;}
+    public void setHistory(String history) {this.history = history;}
     public void setUsername(String username) {this.username = username;}
 
 }

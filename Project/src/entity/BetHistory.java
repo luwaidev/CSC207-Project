@@ -17,7 +17,7 @@ public class BetHistory {
         if (betHistory.containsKey(user)) {
             return betHistory.get(user);
         }else {
-            throw new NoSuchElementException("No such user exists!");
+            return null; // Means either the user doesn't exist or the user has no bets
         }
     };
 }
