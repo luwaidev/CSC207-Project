@@ -4,6 +4,7 @@ import interface_adapter.login.LoginController;
 import interface_adapter.login.LoginState;
 import interface_adapter.login.LoginViewModel;
 import interface_adapter.signup.SignupState;
+import interface_adapter.signup.SignupViewModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,20 +37,64 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
         this.loginViewModel = loginViewModel;
         this.loginViewModel.addPropertyChangeListener(this);
 
-        JLabel title = new JLabel("Login Screen");
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // Style
+        JPanel panel = this;
+        panel.setBackground(Color.decode("#1e1e1e"));
 
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(null);
+
+        JLabel title = new JLabel(loginViewModel.TITLE_LABEL, SwingConstants.LEFT);
+        title.setFont(new Font("Futura", Font.BOLD, 94));
+        title.setForeground(Color.decode("#A3B7FF"));
+        title.setBounds(50, 40, 900, 100);
+
+        titlePanel.setBackground(Color.decode("#181818"));
+        titlePanel.setBounds(0, 0, 1024, 180);
+        titlePanel.add(title);
+
+        JLabel subtitle = new JLabel(loginViewModel.SUBTITLE_LABEL, SwingConstants.LEFT);
+        subtitle.setFont(new Font("Futura", Font.BOLD, 48));
+        subtitle.setBackground(Color.decode("#1e1e1e"));
+        subtitle.setForeground(Color.white);
+        subtitle.setBounds(50, 200, 900, 100);
+        JPanel subtitleUnderline = new JPanel();;
+        subtitleUnderline.setBackground(Color.white);
+        subtitleUnderline.setBounds(50, 305, 175, 2);
+
+
+        JLabel usernameLabel = new JLabel(loginViewModel.USERNAME_LABEL, SwingConstants.LEFT);
         LabelTextPanel usernameInfo = new LabelTextPanel(
-                new JLabel("Username"), usernameInputField);
+                usernameLabel, usernameInputField);
+        usernameLabel.setForeground(Color.white);
+        usernameLabel.setFont(new Font("Futura", Font.BOLD, 30));
+        usernameInfo.setBackground(Color.decode("#1e1e1e"));
+        usernameInfo.setBounds(-240, 350, 900, 50);
+
+
+        JLabel passwordLabel = new JLabel(loginViewModel.PASSWORD_LABEL);
         LabelTextPanel passwordInfo = new LabelTextPanel(
-                new JLabel("Password"), passwordInputField);
+                passwordLabel, passwordInputField);
+        passwordLabel.setFont(new Font("Futura", Font.BOLD, 30));
+        passwordLabel.setForeground(Color.white);
+        passwordInfo.setBackground(Color.decode("#1e1e1e"));
+        passwordInfo.setBounds(-242, 400, 900, 50);
+
+        JPanel line = new JPanel();
+        line.setBackground(Color.white);
+        line.setBounds(44, 600, 938, 2);
 
         JPanel buttons = new JPanel();
-        logIn = new JButton(loginViewModel.LOGIN_BUTTON_LABEL);
+        buttons.setBackground(Color.decode("#1e1e1e"));
+        buttons.setBounds(-225, 650, 1024, 100);
+        logIn = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
         buttons.add(logIn);
-        createAccount = new JButton(loginViewModel.CREATE_ACCOUNT_BUTTON_LABEL);
+        logIn.setFont(new Font("Futura", Font.BOLD, 20));
+        createAccount = new JButton(LoginViewModel.CREATE_ACCOUNT_BUTTON_LABEL);
         buttons.add(createAccount);
-        skipLogin = new JButton(loginViewModel.SKIP_BUTTON_LABEL);
+        createAccount.setFont(new Font("Futura", Font.BOLD, 20));
+        skipLogin = new JButton(LoginViewModel.SKIP_BUTTON_LABEL);
+        skipLogin.setFont(new Font("Futura", Font.BOLD, 20));
         buttons.add(skipLogin);
 
         logIn.addActionListener(                // This creates an anonymous subclass of ActionListener and instantiates it.
@@ -98,8 +143,6 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
             public void keyReleased(KeyEvent e) {
             }
         });
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
         passwordInputField.addKeyListener(
                 new KeyListener() {
                     @Override
@@ -118,11 +161,15 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
                     }
                 });
 
-        this.add(title);
+        this.setLayout(null);
+        this.add(titlePanel);
+        this.add(subtitle);
+        this.add(subtitleUnderline);
         this.add(usernameInfo);
         this.add(usernameErrorField);
         this.add(passwordInfo);
         this.add(passwordErrorField);
+        this.add(line);
         this.add(buttons);
     }
 
