@@ -1,4 +1,4 @@
-package data_access.calculatePlayerAverage;
+package use_case.player_bet_predictor.calculatePlayerAverage;
 
 import java.util.ArrayList;
 
@@ -9,13 +9,12 @@ public class meanPlayerCalculator implements playerCalculator {
         -> practically is fine since it's just the mean
      */
     @Override
-    public Object calculatePLayer(ArrayList<Integer> allStats) {
+    public String calculatePlayer(ArrayList<Integer> allStats) {
         int total = 0;
         for (int point : allStats) {
             total += point;
         }
 
-        int mean = total/allStats.size();
-        return mean;
+        return "They are most likely to get " + Integer.toString(total/allStats.size()) + " points.";
     }
 }

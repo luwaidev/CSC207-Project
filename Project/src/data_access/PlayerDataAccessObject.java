@@ -16,9 +16,8 @@ import java.util.ArrayList;
 public class PlayerDataAccessObject implements PlayerTeamDataAccessInterface, RecommendationDataAccessInterface {
 
     public static void main(String[] args) {
-        Player player1 = getPlayerStats(getPlayerID("Russell", "Westbrook"));
-        System.out.println(player1.getId());
-        System.out.println(player1.getPointsPerGame());
+        ArrayList<Integer> player1 = getPlayerStats(getPlayerID("Russell", "Westbrook"));
+        System.out.println(player1);
         // System.out.println(player1.getName);
     }
     public static int getPlayerID(String first, String last) {
@@ -47,7 +46,7 @@ public class PlayerDataAccessObject implements PlayerTeamDataAccessInterface, Re
         }
         return id;
     }
-    public static Player getPlayerStats(int playerId) throws JSONException {
+    public static ArrayList<Integer> getPlayerStats(int playerId) throws JSONException {
         ArrayList<Integer> points = new ArrayList<>();
         OkHttpClient client = new OkHttpClient();
 
@@ -74,7 +73,7 @@ public class PlayerDataAccessObject implements PlayerTeamDataAccessInterface, Re
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return new Player(playerId, points);
+        return points;
     }
 
     private static ArrayList<Integer> getPlayerPoints(JSONArray games, int playerId) {

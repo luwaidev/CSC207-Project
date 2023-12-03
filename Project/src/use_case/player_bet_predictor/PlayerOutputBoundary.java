@@ -5,6 +5,7 @@ import use_case.bet_predictor.BetOutputData;
 public interface PlayerOutputBoundary {
     void prepareSuccessView(PlayerOutputData playerOutputData);
 
-    void prepareFailView(String error);
+    void prepareFailView(PlayerOutputData playerOutputData);
+    void backToMain();
 
 }

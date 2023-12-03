@@ -6,10 +6,8 @@ import interface_adapter.bet_history.BetHistoryController;
 
 
 public class BetInteractor implements BetInputBoundary {
-    // this class is for making predictions b/w two teams
 
     final BetTeamDataAccessInterface userDataAccessObject;
-    // data access interface is a problem for later lol
 
     final BetOutputBoundary betPresenter;
     private String username = "username";
