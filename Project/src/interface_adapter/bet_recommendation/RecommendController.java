@@ -14,8 +14,8 @@ public class RecommendController {
     }
 
 
-    public void execute(String first_name, String last_name, JPanel panel) {
-        RecommendationInputData recommendationInputData = new RecommendationInputData(first_name,last_name,panel);
+    public void execute(String name, JPanel panel) {
+        RecommendationInputData recommendationInputData = new RecommendationInputData(name, panel);
 
         recommendationInteractor.execute(recommendationInputData);
     }

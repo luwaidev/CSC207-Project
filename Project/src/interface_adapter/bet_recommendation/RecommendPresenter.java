@@ -1,6 +1,7 @@
 package interface_adapter.bet_recommendation;
 
 import interface_adapter.ViewManagerModel;
+import interface_adapter.bet_history.BetHistoryViewModel;
 import interface_adapter.menu.MenuState;
 import interface_adapter.menu.MenuViewModel;
 import use_case.bet_recommendation.RecommendationOutputBoundary;
@@ -10,8 +11,13 @@ import javax.swing.*;
 
 
 public class RecommendPresenter implements RecommendationOutputBoundary {
+    private final RecommendViewModel recommendViewModel;
 
-    public RecommendPresenter() {
+    final ViewManagerModel viewManagerModel;
+
+    public RecommendPresenter(RecommendViewModel recommendViewModel, ViewManagerModel viewManagerModel) {
+        this.viewManagerModel = viewManagerModel;
+        this.recommendViewModel =recommendViewModel;
 
     }
 
