@@ -5,6 +5,7 @@ import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.menu.MenuController;
 import interface_adapter.menu.MenuState;
 import interface_adapter.menu.MenuViewModel;
+import interface_adapter.signup.SignupViewModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,21 +29,93 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         this.menuController = menuController;
         this.menuViewModel.addPropertyChangeListener(this);
 
-        JLabel title = new JLabel(menuViewModel.TITLE_LABEL);
+        // Style
+        JPanel panel = this;
+        panel.setBackground(Color.decode("#1e1e1e"));
 
-        username = new JLabel("USERNAME");
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(null);
 
-        JPanel buttons = new JPanel();
+        JLabel title = new JLabel(menuViewModel.TITLE_LABEL, SwingConstants.CENTER);
+        title.setFont(new Font("Futura", Font.BOLD, 64));
+        title.setForeground(Color.decode("#A3B7FF"));
+        title.setBounds(0, 0, 1024, 100);
+        title.setBackground(Color.decode("#181818"));
 
+        titlePanel.setBackground(Color.decode("#181818"));
+        titlePanel.setBounds(0, 0, 1024, 100);
+        titlePanel.add(title);
+
+        username = new JLabel(menuViewModel.USER_WELCOME_LABEL, SwingConstants.LEFT);
+        username.setFont(new Font("Futura", Font.BOLD, 48));
+        username.setForeground(Color.decode("#FFFFFF"));
+        username.setBackground(Color.decode("#1e1e1e"));
+        username.setBounds(50, 90, 900, 100);
+
+        JLabel subtitle = new JLabel(menuViewModel.USER_WELCOME_SUBLABEL, SwingConstants.LEFT);
+        subtitle.setFont(new Font("Futura", Font.BOLD, 34));
+        subtitle.setForeground(Color.decode("#FFFFFF"));
+        subtitle.setBackground(Color.decode("#1e1e1e"));
+        subtitle.setBounds(50, 150, 900, 100);
+
+        JPanel line = new JPanel();
+        line.setBackground(Color.decode("#FFFFFF"));
+        line.setBounds(50, 240, 900, 2);
+
+        // Button Section
+
+        JPanel betPredictionPanel = new JPanel();
+        betPredictionPanel.setLayout(null);
+        betPredictionPanel.setBackground(Color.decode("#181818"));
+        betPredictionPanel.setBounds(50, 275, 275, 200);
         betPrediction = new JButton(menuViewModel.BET_PREDICTION_BUTTON);
-        buttons.add(betPrediction);
+        betPrediction.setBounds(10, 10, 255, 40);
+        betPrediction.setFont(new Font("Futura", Font.BOLD, 28));
+        betPrediction.setBackground(Color.decode("#ffffff"));
 
+        JTextArea betPredictionDescription = new JTextArea(menuViewModel.BET_PREDICTION_BUTTON_DESCRIPTION);
+        betPredictionDescription.setBounds(10, 60, 255, 100);
+        betPredictionDescription.setFont(new Font("Futura", Font.BOLD, 18));
+        betPredictionDescription.setForeground(Color.decode("#FFFFFF"));
+        betPredictionDescription.setBackground(Color.decode("#181818"));
+        betPredictionDescription.setLineWrap(true);
+        betPredictionDescription.setWrapStyleWord(true);
+        betPredictionDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        betPredictionPanel.add(betPrediction);
+        betPredictionPanel.add(betPredictionDescription);
+
+        JPanel betHistoryPanel = new JPanel();
+        betHistoryPanel.setLayout(null);
+        betHistoryPanel.setBackground(Color.decode("#181818"));
+        betHistoryPanel.setBounds(362, 275, 275, 200);
         betHistory = new JButton(menuViewModel.BET_HISTORY_BUTTON);
-        buttons.add(betHistory);
+        betHistory.setBounds(10, 10, 255, 40);
+        betHistory.setFont(new Font("Futura", Font.BOLD, 28));
+        betHistory.setBackground(Color.decode("#ffffff"));
 
+        JTextArea betHistoryDescription = new JTextArea(menuViewModel.BET_HISTORY_BUTTON_DESCRIPTION);
+        betHistoryDescription.setBounds(10, 60, 255, 100);
+        betHistoryDescription.setFont(new Font("Futura", Font.BOLD, 18));
+        betHistoryDescription.setForeground(Color.decode("#FFFFFF"));
+        betHistoryDescription.setBackground(Color.decode("#181818"));
+        betHistoryDescription.setLineWrap(true);
+        betHistoryDescription.setWrapStyleWord(true);
+        betHistoryDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        betHistoryPanel.add(betHistory);
+        betHistoryPanel.add(betHistoryDescription);
+
+        JPanel betRecomendationPanel = new JPanel();
+        betRecomendationPanel.setLayout(null);
+        betRecomendationPanel.setBackground(Color.decode("#181818"));
+        betRecomendationPanel.setBounds(675, 275, 275, 200);
+
+        // Log out button
         logOut = new JButton(menuViewModel.LOG_OUT_BUTTON);
-        buttons.add(logOut);
+        logOut.setBounds(675, 650, 275, 40);
+        logOut.setFont(new Font("Futura", Font.BOLD, 28));
+        logOut.setBackground(Color.decode("#ffffff"));
 
         betPrediction.addActionListener(new ActionListener() {
             @Override
@@ -64,11 +137,18 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
                 menuController.logout();
             }
         });
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        this.add(title);
+        this.setLayout(null);
+
+        this.add(titlePanel);
+        this.add(subtitle);
+        this.add(line);
         this.add(username);
-        this.add(buttons);
+        this.add(betPredictionPanel);
+        this.add(betHistoryPanel);
+        this.add(betRecomendationPanel);
+
+        this.add(logOut);
     }
 
     /**
@@ -82,7 +162,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
     public void propertyChange(PropertyChangeEvent evt) {
         MenuState state = (MenuState) evt.getNewValue();
         menuViewModel.setState(state);
-        username.setText(state.getUsername());
+        username.setText(menuViewModel.USER_WELCOME_LABEL + state.getUsername());
     }
 
 }

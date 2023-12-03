@@ -96,11 +96,14 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         buttons.setBackground(Color.decode("#1e1e1e"));
         buttons.setBounds(-278, 650, 1024, 100);
         signUp = new JButton(SignupViewModel.SIGNUP_BUTTON_LABEL);
-        buttons.add(signUp);
+        signUp.setBackground(Color.decode("#FFFFFF"));
         signUp.setFont(new Font("Futura", Font.BOLD, 20));
+        buttons.add(signUp);
+
         login = new JButton(SignupViewModel.LOGIN_BUTTON_LABEL);
-        buttons.add(login);
         login.setFont(new Font("Futura", Font.BOLD, 20));
+        login.setBackground(Color.decode("#FFFFFF"));
+        buttons.add(login);
 
         // TODO Note: the following line instantiates the "clear" button; it uses
         //      a CLEAR_BUTTON_LABEL constant which is defined in the SignupViewModel class.

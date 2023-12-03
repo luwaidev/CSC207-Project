@@ -103,11 +103,11 @@ public class Main {
         application.setVisible(true);
 
         // List fonts
-        String fonts[] =
-                GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-
-        for (int i = 0; i < fonts.length; i++) {
-            System.out.println(fonts[i]);
-        }
+//        String fonts[] =
+//                GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+//
+//        for (int i = 0; i < fonts.length; i++) {
+//            System.out.println(fonts[i]);
+//        }
     }
 }

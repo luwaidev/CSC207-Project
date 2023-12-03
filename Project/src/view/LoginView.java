@@ -88,13 +88,19 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
         buttons.setBackground(Color.decode("#1e1e1e"));
         buttons.setBounds(-225, 650, 1024, 100);
         logIn = new JButton(LoginViewModel.LOGIN_BUTTON_LABEL);
-        buttons.add(logIn);
         logIn.setFont(new Font("Futura", Font.BOLD, 20));
+        logIn.setBackground(Color.decode("#FFFFFF"));
+        buttons.add(logIn);
+
+
         createAccount = new JButton(LoginViewModel.CREATE_ACCOUNT_BUTTON_LABEL);
-        buttons.add(createAccount);
         createAccount.setFont(new Font("Futura", Font.BOLD, 20));
+        createAccount.setBackground(Color.decode("#FFFFFF"));
+        buttons.add(createAccount);
+
         skipLogin = new JButton(LoginViewModel.SKIP_BUTTON_LABEL);
         skipLogin.setFont(new Font("Futura", Font.BOLD, 20));
+        skipLogin.setBackground(Color.decode("#FFFFFF"));
         buttons.add(skipLogin);
 
         logIn.addActionListener(                // This creates an anonymous subclass of ActionListener and instantiates it.
