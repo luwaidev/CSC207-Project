@@ -16,7 +16,10 @@ public class MenuViewModel extends ViewModel {
     public final String BET_HISTORY_BUTTON = "Bet History";
     public final String BET_HISTORY_BUTTON_DESCRIPTION = "Input two teams, and have our state of the art algorithms determine which is a better bet";
     public final String LOG_OUT_BUTTON = "Log Out";
+    public final String BET_RECOMMENDATION_BUTTON = "Bet Recommendation";
+  
     private MenuState state = new MenuState();
+
     public MenuViewModel(){super("menu");}
 
 
