@@ -7,7 +7,7 @@ public class Player {
     private final int playerId;
 
     private final int numGamesPlayed;
-    private final ArrayList<Integer> pointsPerGame;
+    private ArrayList<Integer> pointsPerGame;
     private final double avgPoints;
     public int getId() {return playerId;}
 
