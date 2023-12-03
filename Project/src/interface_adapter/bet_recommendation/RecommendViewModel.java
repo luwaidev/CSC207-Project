@@ -13,7 +13,7 @@ public class RecommendViewModel extends ViewModel {
     public final String RECOMMEND_BUTTON_LABEL = "Generate Recommendation";
 
     private static RecommendState state = new RecommendState();
-    public RecommendViewModel(){super("Bet Recommendation");}
+    public RecommendViewModel(){super("bet recommendation");}
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     @Override
