@@ -1,6 +1,7 @@
 package use_case.player_bet_predictor;
 
 import data_access.PlayerDataAccessObject;
+import data_access.TeamDataAccessObject;
 import entity.Player;
 import use_case.player_bet_predictor.calculatePlayerAverage.Context;
 import use_case.player_bet_predictor.calculatePlayerAverage.meanPlayerCalculator;
@@ -25,11 +26,11 @@ public class PlayerInteractor implements PlayerInputBoundary {
         String playerFirstName = playerInputData.getFirstName();
         String playerLastName = playerInputData.getLastName();
 
-        ArrayList<Integer> player = PlayerDataAccessObject.getPlayerStats(PlayerDataAccessObject.getPlayerID(playerFirstName, playerLastName));
+        Player player = PlayerDataAccessObject.getPlayerStats(PlayerDataAccessObject.getPlayerID(playerFirstName, playerLastName));
 
         Context context = new Context(new rangePlayerCalculatorOverlap());
 
-        PlayerOutputData pointsWon = new PlayerOutputData(context.executeStrategy(player), playerInputData.panel);
+        PlayerOutputData pointsWon = new PlayerOutputData(context.executeStrategy(player.getPointsPerGame()), playerInputData.panel);
         playerPresenter.prepareSuccessView(pointsWon);
 
     }
