@@ -81,11 +81,11 @@ public class Main {
         views.add(menuView, menuView.viewName);
 
         BetPredictionView betPredictionView = BetPredictionUseCaseFactory.create(viewManagerModel,
-                                                                                betPredictionViewModel, teamDataAccessObject);
+                                                                                betPredictionViewModel, teamDataAccessObject, menuViewModel);
         views.add(betPredictionView, betPredictionView.viewName);
 
         BetHistoryView betHistoryView = BetHistoryUseCaseFactory.create(viewManagerModel,
-                                                                        betHistoryViewModel);
+                                                                        betHistoryViewModel, menuViewModel);
         views.add(betHistoryView, betHistoryView.viewName);
 
         BetRecommendView betRecommendView = BetRecommendationUseCaseFactory.create(viewManagerModel, recommendViewModel, playerDataAccessObject);

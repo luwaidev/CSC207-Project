@@ -5,23 +5,27 @@ import use_case.bet_predictor.BetOutputBoundary;
 
 public class BetHistoryInteractor implements BetHistoryInputBoundary {
     final BetHistoryOutputBoundary betHistoryPresenter;
+    private String username = "username";
+    public String history = "";
     public BetHistoryInteractor(BetHistoryOutputBoundary betHistoryPresenter) {
         this.betHistoryPresenter = betHistoryPresenter;
 
     }
-    public void savetoHistory (User user, String team1, String team2, String winningTeam) {
-        String bet = user.getName() + team1 + team2 + winningTeam;
-        BetHistory.setBetHistory(user, bet);
+    @Override
+    public void execute(BetHistoryInputData betHistoryInputData) {
+        System.out.println("user:" + username);
+        history = String.valueOf(BetHistory.getBetHistory(username));
+        betHistoryPresenter.sendHistory(history);
     }
-    public void getHistory (User user) {
-        BetHistory.getBetHistory(user);
+    @Override
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void exportHistory () {
-
+    @Override
+    public void backToMain() {
+        betHistoryPresenter.backToMain();
     }
 
-    public void importHistory () {
 
-    }
 }
