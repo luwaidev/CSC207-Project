@@ -13,8 +13,6 @@ public class MenuState {
     public MenuState() {}
 
     public String getUsername() {
-        System.out.println("username:");
-        System.out.println(username);
         return username;
     }
     public void setUsername(String username) {
