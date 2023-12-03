@@ -20,11 +20,16 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
     @Override
     public void execute(RecommendationInputData recommendationInputData) {
         String name = recommendationInputData.getName();
+        String error = "Error";
+        if (!name.contains(" ")){
+            RecommendationOutputData output = new RecommendationOutputData(error, recommendationInputData.panel);
+            recommendPresenter.prepareFailView(output);
+
+        }
 
         String[] names = name.split(" ");
         String first_name = names[0];
         String last_name = names[1];
-        String error = "Error";
 
 
         Player fav_player = PlayerDataAccessObject.getPlayerStats(PlayerDataAccessObject.getPlayerID(first_name, last_name));
