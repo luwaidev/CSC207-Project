@@ -11,6 +11,7 @@ public class BetHistory {
         }else {
             ArrayList<String> newBets = new ArrayList<String>();
             betHistory.put(user, newBets);
+            betHistory.get(user).add(bet);
         }
     }
     public static ArrayList<String> getBetHistory(String user) {
