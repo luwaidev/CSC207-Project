@@ -8,6 +8,7 @@ import interface_adapter.bet_prediction.BetPredictionViewModel;
 import interface_adapter.bet_recommendation.RecommendViewModel;
 import interface_adapter.login.LoginViewModel;
 import use_case.menu.MenuOutputBoundary;
+import use_case.menu.MenuOutputData;
 import view.BetRecommendView;
 import view.ViewManager;
 
