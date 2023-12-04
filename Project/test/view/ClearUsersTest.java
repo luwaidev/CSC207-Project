@@ -63,7 +63,8 @@ public class ClearUsersTest {
 
         JPanel buttons = (JPanel) sv.getComponent(4);
 
-        return (JButton) buttons.getComponent(1); // this should be the clear button
+        return (JButton) buttons.getComponent(2); // this should be the clear button
+
     }
 
     /**
