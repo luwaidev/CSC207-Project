@@ -18,7 +18,6 @@ public class PlayerDataAccessObject implements PlayerTeamDataAccessInterface, Re
     public static void main(String[] args) {
         Player player1 = getPlayerStats(getPlayerID("Russell", "Westbrook"));
         System.out.println(player1);
-        // System.out.println(player1.getName);
     }
     public static int getPlayerID(String first, String last) {
         int id = -1;
