@@ -19,5 +19,9 @@ public class RecommendController {
 
         recommendationInteractor.execute(recommendationInputData);
     }
+
+    public void backtoMain() {
+        recommendationInteractor.backtoMain();
+    }
 }
 

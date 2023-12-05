@@ -8,6 +8,7 @@ import interface_adapter.bet_prediction.BetPredictionViewModel;
 import interface_adapter.bet_recommendation.RecommendViewModel;
 import interface_adapter.login.LoginViewModel;
 import use_case.menu.MenuOutputBoundary;
+import use_case.menu.MenuOutputData;
 import view.BetRecommendView;
 import view.ViewManager;
 
@@ -29,7 +30,7 @@ public class MenuPresenter implements MenuOutputBoundary {
     }
 
     @Override
-    public void openBetPredictor(oMenuOutputData menuOutputData) {
+    public void openBetPredictor(MenuOutputData menuOutputData) {
         // Update bet predictor with username
         BetPredictionState betPredictionState = betPredictionViewModel.getState();
         betPredictionState.setUsername(menuOutputData.getUsername());

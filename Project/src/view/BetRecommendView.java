@@ -23,6 +23,7 @@ public class BetRecommendView extends JPanel implements ActionListener, Property
 
     private final JLabel playerError = new JLabel();
     final JButton recommend;
+    final JButton back;
 
     public BetRecommendView(RecommendViewModel recommendViewModel, RecommendController recommendController){
         this.recommendViewModel = recommendViewModel;
@@ -58,6 +59,17 @@ public class BetRecommendView extends JPanel implements ActionListener, Property
 
             }
         });
+        back = new JButton(recommendViewModel.INPUT_A_LABEL);
+        back.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(back)){
+                            recommendController.backtoMain();
+                        }
+                    }
+                }
+        );
 
 
         recommend = new JButton(recommendViewModel.RECOMMEND_BUTTON_LABEL);
@@ -82,6 +94,7 @@ public class BetRecommendView extends JPanel implements ActionListener, Property
         this.add(recommend);
         this.add(inputPlayer);
         this.add(playerError);
+        this.add(back);
 
 
 

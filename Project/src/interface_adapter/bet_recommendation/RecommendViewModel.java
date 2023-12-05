@@ -10,6 +10,7 @@ public class RecommendViewModel extends ViewModel {
     public final String TITLE_LABEL = "Bet Recommendation";
     public final String INPUT_A_LABEL = "Enter your favorite player's first and last name with one space in between";
     public final String RECOMMEND_BUTTON_LABEL = "Generate Recommendation";
+    public final String BACK_LABEL = "Back";
 
     private static RecommendState state = new RecommendState();
     public RecommendViewModel(){super("bet recommendation");}
