@@ -8,7 +8,8 @@ import java.beans.PropertyChangeSupport;
 
 public class BetPredictionViewModel extends ViewModel {
 
-    public final String TITLE_LABEL = "Predict Winner";
+    public final String TITLE_LABEL = "SPORTSMART";
+    public final String SUBTITLE_LABEL = "Bet Prediction";
     public final String INPUT_A_LABEL = "Team One";
     public final String INPUT_B_LABEL = "Team Two";
 
