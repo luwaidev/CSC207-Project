@@ -12,14 +12,18 @@ import javax.swing.*;
 
 public class RecommendPresenter implements RecommendationOutputBoundary {
     private final RecommendViewModel recommendViewModel;
+    private final MenuViewModel menuViewModel;
 
     final ViewManagerModel viewManagerModel;
 
-    public RecommendPresenter(RecommendViewModel recommendViewModel, ViewManagerModel viewManagerModel) {
+    public RecommendPresenter(RecommendViewModel recommendViewModel, ViewManagerModel viewManagerModel,
+                              MenuViewModel menuViewModel){
         this.viewManagerModel = viewManagerModel;
         this.recommendViewModel =recommendViewModel;
+        this.menuViewModel = menuViewModel;
 
     }
+
 
     @Override
     public void prepareSuccessView(RecommendationOutputData recommendation) {
@@ -30,6 +34,13 @@ public class RecommendPresenter implements RecommendationOutputBoundary {
     @Override
     public void prepareFailView(RecommendationOutputData recommendation) {
         JOptionPane.showMessageDialog(recommendation.panel,"Invalid Player" );
+
+    }
+
+    @Override
+    public void backToMain() {
+        this.viewManagerModel.setActiveView(menuViewModel.getViewName());
+        this.viewManagerModel.firePropertyChanged();
 
     }
 }
