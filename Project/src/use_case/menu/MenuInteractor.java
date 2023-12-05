@@ -19,10 +19,6 @@ public class MenuInteractor implements MenuInputBoundary{
         menuPresenter.openBetHistory(menuOutputData);
     }
 
-    @Override
-    public void openBetHistory() {
-
-    }
 
     @Override
     public void logout(){menuPresenter.logout();}
