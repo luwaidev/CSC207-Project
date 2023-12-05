@@ -7,7 +7,8 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class RecommendViewModel extends ViewModel {
-    public final String TITLE_LABEL = "Bet Recommendation";
+    public final String TITLE_LABEL = "SPORTSMART";
+    public final String SUBTITLE_LABEL = "Bet Recommendation";
     public final String INPUT_A_LABEL = "Enter your favorite player's first and last name with one space in between";
     public final String RECOMMEND_BUTTON_LABEL = "Generate Recommendation";
 
