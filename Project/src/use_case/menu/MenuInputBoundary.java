@@ -5,7 +5,6 @@ public interface MenuInputBoundary {
     public void openBetHistory(MenuInputData menuInputData);
     public void openBetRecommendation(MenuInputData menuInputData);
 
-
     public void logout();
 
 }

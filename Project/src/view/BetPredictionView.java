@@ -152,6 +152,7 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
 
                             betPredictionController.execute(current.getInputA(), current.getInputB(), String.valueOf(username), panel);
 
+
                         }
                     }
 

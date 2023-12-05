@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class Player {
     private final int playerId;
-
     private final int numGamesPlayed;
     private ArrayList<Integer> pointsPerGame;
     private final double avgPoints;
