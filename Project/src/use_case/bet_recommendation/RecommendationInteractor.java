@@ -57,5 +57,11 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
             recommendPresenter.prepareFailView(output);
 
         }
-    }}
+    }
+
+    @Override
+    public void backToMain() {
+        recommendPresenter.backToMain();
+    }
+}
 

@@ -5,6 +5,7 @@ import interface_adapter.bet_history.BetHistoryState;
 import interface_adapter.bet_history.BetHistoryViewModel;
 import interface_adapter.bet_prediction.BetPredictionState;
 import interface_adapter.bet_prediction.BetPredictionViewModel;
+import interface_adapter.bet_recommendation.RecommendState;
 import interface_adapter.bet_recommendation.RecommendViewModel;
 import interface_adapter.login.LoginViewModel;
 import use_case.menu.MenuOutputBoundary;
@@ -65,10 +66,15 @@ public class MenuPresenter implements MenuOutputBoundary {
 
     }
     @Override
-    public void openBetRecommendation(){
+    public void openBetRecommendation(MenuOutputData menuOutputData){
+        RecommendState recommendState = recommendViewModel.getState();
+        recommendState.setUsername(menuOutputData.getUsername());
+        this.recommendViewModel.setState(recommendState);
+        this.recommendViewModel.firePropertyChanged();
+        recommendViewModel.firePropertyChanged();
         this.viewManagerModel.setActiveView(recommendViewModel.getViewName());
-
         this.viewManagerModel.firePropertyChanged();
+
         System.out.println(this.viewManagerModel.getActiveView());
     }
 

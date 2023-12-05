@@ -88,7 +88,8 @@ public class Main {
                                                                         betHistoryViewModel, menuViewModel);
         views.add(betHistoryView, betHistoryView.viewName);
 
-        BetRecommendView betRecommendView = BetRecommendationUseCaseFactory.create(viewManagerModel, recommendViewModel, playerDataAccessObject);
+        BetRecommendView betRecommendView = BetRecommendationUseCaseFactory.create(viewManagerModel,
+                recommendViewModel, playerDataAccessObject, menuViewModel);
         views.add(betRecommendView,betRecommendView.viewName);
 
     // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV
