@@ -75,10 +75,11 @@ public class BetRecommendView extends JPanel implements ActionListener, Property
         inputPlayerLabel.setFont(new Font("Futura", Font.BOLD, 24));
         inputPlayerLabel.setForeground(Color.white);
         inputPlayerLabel.setBackground(Color.decode("#1e1e1e"));
-        inputPlayerLabel.setBounds(50, 250, 500, 300);
+        inputPlayerLabel.setBounds(50, 250, 500, 75);
         inputPlayerLabel.setLineWrap(true);
         inputPlayerLabel.setWrapStyleWord(true);
         inputPlayerLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        inputPlayerLabel.setEditable(false);
 
         LabelTextPanel inputPlayer = new LabelTextPanel(
                 new JLabel(), playerinput);
