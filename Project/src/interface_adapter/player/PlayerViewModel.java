@@ -6,11 +6,12 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class PlayerViewModel extends ViewModel {
-    public final String TITLE_LABEL = "Predict amount of points";
-    public final String INPUT_A_LABEL = "Player First Name";
-    public final String INPUT_B_LABEL = "Player Last Name";
+    public final String TITLE_LABEL = "SPORTSMART";
+    public final String SUBTITLE_LABEL = "Player Point Prediction";
+    public final String INPUT_A_LABEL = "First Name";
+    public final String INPUT_B_LABEL = "Last Name";
     public final String BACK_BUTTON_LABEL = "Back";
-    public final String PREDICT_BUTTON_LABEL = "Predict amount of points";
+    public final String PREDICT_BUTTON_LABEL = "Predict";
     private PlayerState state = new PlayerState();
 
     public PlayerViewModel(){

@@ -32,29 +32,85 @@ public class PlayerView extends JPanel implements ActionListener, PropertyChange
         this.playerController = playerController;
         this.playerViewModel.addPropertyChangeListener(this);
 
-        // Main title
-        JLabel title = new JLabel((playerViewModel.TITLE_LABEL));
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // Style
+        JPanel panel = this;
+        panel.setBackground(Color.decode("#1e1e1e"));
+
+        // Title Panel
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(null);
+
+        JLabel title = new JLabel(playerViewModel.TITLE_LABEL, SwingConstants.CENTER);
+        title.setFont(new Font("Futura", Font.BOLD, 64));
+        title.setForeground(Color.decode("#A3B7FF"));
+        title.setBounds(0, 0, 1024, 100);
+        title.setBackground(Color.decode("#181818"));
+
+        titlePanel.setBackground(Color.decode("#181818"));
+        titlePanel.setBounds(0, 0, 1024, 100);
+        titlePanel.add(title);
+
+        // Subtitle Section
+        JLabel subtitle = new JLabel(playerViewModel.SUBTITLE_LABEL, SwingConstants.LEFT);
+        subtitle.setFont(new Font("Futura", Font.BOLD, 48));
+        subtitle.setBackground(Color.decode("#1e1e1e"));
+        subtitle.setForeground(Color.white);
+        subtitle.setBounds(44, 100, 900, 100);
+        JPanel subtitleUnderline = new JPanel();;
+        subtitleUnderline.setBackground(Color.white);
+        subtitleUnderline.setBounds(44, 205, 340, 2);
+
+        // Username Section
+        username = new JLabel("USERNAME");
+        username.setFont(new Font("Futura", Font.BOLD, 24));
+        username.setForeground(Color.decode("#FFFFFF"));
+        username.setBackground(Color.decode("#1e1e1e"));
+        username.setBounds(500, 100, 900, 100);
 
         username = new JLabel("USERNAME");
 
-        JPanel playerInputs = new JPanel();
 
-        // player first name input
-        LabelTextPanel inputA = new LabelTextPanel(new JLabel(playerViewModel.INPUT_A_LABEL), inputFieldA);
-        playerInputs.add(inputA);
+        // Username Section
+        username = new JLabel("USERNAME");
+        username.setFont(new Font("Futura", Font.BOLD, 24));
+        username.setForeground(Color.decode("#FFFFFF"));
+        username.setBackground(Color.decode("#1e1e1e"));
+        username.setBounds(650, 100, 900, 100);
 
-        // player last name input
-        LabelTextPanel inputB = new LabelTextPanel(new JLabel(playerViewModel.INPUT_B_LABEL), inputFieldB);
-        playerInputs.add(inputB);
+        // First Team Input
+        JLabel inputALabel = new JLabel(playerViewModel.INPUT_A_LABEL, SwingConstants.LEFT);
+        LabelTextPanel inputA = new LabelTextPanel(
+                inputALabel, inputFieldA);
+        inputALabel.setFont(new Font("Futura", Font.BOLD, 30));
+        inputALabel.setForeground(Color.white);
+        inputA.setBackground(Color.decode("#1e1e1e"));
+        inputA.setBounds(-240, 250, 900, 50);
 
-        // predict points button and back button
-        JPanel buttons = new JPanel();
+        // Second Team Input
+        JLabel inputBLabel = new JLabel(playerViewModel.INPUT_B_LABEL, SwingConstants.LEFT);
+        LabelTextPanel inputB = new LabelTextPanel(
+                inputBLabel, inputFieldB);
+        inputBLabel.setFont(new Font("Futura", Font.BOLD, 30));
+        inputBLabel.setForeground(Color.white);
+        inputB.setBackground(Color.decode("#1e1e1e"));
+        inputB.setBounds(-240, 300, 900, 50);
 
+        // Divider Line
+        JPanel line = new JPanel();
+        line.setBackground(Color.white);
+        line.setBounds(44, 600, 938, 2);
+
+        // Button Section
         predict = new JButton(playerViewModel.PREDICT_BUTTON_LABEL);
+        predict.setFont(new Font("Futura", Font.BOLD, 20));
+        predict.setBackground(Color.decode("#FFFFFF"));
+        predict.setBounds(44, 625, 200, 50);
+
+
         back = new JButton(playerViewModel.BACK_BUTTON_LABEL);
-        buttons.add(predict);
-        buttons.add(back);
+        back.setFont(new Font("Futura", Font.BOLD, 20));
+        back.setBackground(Color.decode("#FFFFFF"));
+        back.setBounds(784, 625, 200, 50);
 
         // set input field key listeners
 
@@ -95,7 +151,6 @@ public class PlayerView extends JPanel implements ActionListener, PropertyChange
 
             }
         });
-        JPanel panel = this;
 
         predict.addActionListener(
                 new ActionListener(){
@@ -123,13 +178,16 @@ public class PlayerView extends JPanel implements ActionListener, PropertyChange
                 }
         );
 
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(title);
+        this.setLayout(null);
+        this.add(titlePanel);
+        this.add(subtitle);
+        this.add(subtitleUnderline);
         this.add(username);
-        this.add(playerInputs);
-        this.add(buttons);
-
-
+        this.add(inputA);
+        this.add(inputB);
+        this.add(line);
+        this.add(predict);
+        this.add(back);
     }
 
 
@@ -143,7 +201,7 @@ public class PlayerView extends JPanel implements ActionListener, PropertyChange
         PlayerState state = (PlayerState) evt.getNewValue();
 
         playerViewModel.setState(state);
-        username.setText(state.getUsername());
+        username.setText("Logged In As: "+ state.getUsername());
         playerController.setUsername(state.getUsername());
 
     }
