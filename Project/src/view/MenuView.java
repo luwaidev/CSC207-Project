@@ -25,7 +25,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
     final JButton logOut;
     final JButton betHistory;
     final JButton betRecommendation;
-
+    final JButton player;
     public MenuView(MenuViewModel menuViewModel, MenuController menuController) {
         this.menuViewModel = menuViewModel;
         this.menuController = menuController;
@@ -133,6 +133,28 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
 
         betRecomendationPanel.add(betRecommendation);
         betRecomendationPanel.add(betRecomendationDescription);
+
+        // Player
+        JPanel playerPanel = new JPanel();
+        playerPanel.setLayout(null);
+        playerPanel.setBackground(Color.decode("#181818"));
+        playerPanel.setBounds(362, 500, 275, 200);
+        player = new JButton(menuViewModel.PLAYER_BUTTON);
+        player.setBounds(10, 10, 255, 40);
+        player.setFont(new Font("Futura", Font.BOLD, 28));
+        player.setBackground(Color.decode("#ffffff"));
+
+        JTextArea playerDescription = new JTextArea(menuViewModel.PLAYER_BUTTON_DESCRIPTION);
+        playerDescription.setBounds(10, 60, 255, 100);
+        playerDescription.setFont(new Font("Futura", Font.BOLD, 18));
+        playerDescription.setForeground(Color.decode("#FFFFFF"));
+        playerDescription.setBackground(Color.decode("#181818"));
+        playerDescription.setLineWrap(true);
+        playerDescription.setWrapStyleWord(true);
+        playerDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        playerPanel.add(player);
+        playerPanel.add(playerDescription);
       
         // Log out button
         logOut = new JButton(menuViewModel.LOG_OUT_BUTTON);
@@ -163,6 +185,13 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
             }
         });
 
+        player.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                menuController.openPlayer(menuViewModel.getState().getUsername());
+            }
+        });
+
         logOut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -179,7 +208,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         this.add(betPredictionPanel);
         this.add(betHistoryPanel);
         this.add(betRecomendationPanel);
-
+        this.add(playerPanel);
         this.add(logOut);
     }
 

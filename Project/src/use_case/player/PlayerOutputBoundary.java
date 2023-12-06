@@ -1,6 +1,4 @@
-package use_case.player_bet_predictor;
-
-import use_case.bet_predictor.BetOutputData;
+package use_case.player;
 
 public interface PlayerOutputBoundary {
     void prepareSuccessView(PlayerOutputData playerOutputData);

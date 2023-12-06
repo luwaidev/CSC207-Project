@@ -1,4 +1,4 @@
-package use_case.player_bet_predictor;
+package use_case.player;
 
 import javax.swing.*;
 

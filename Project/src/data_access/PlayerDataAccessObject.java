@@ -8,12 +8,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import use_case.bet_recommendation.RecommendationDataAccessInterface;
-import use_case.player_bet_predictor.PlayerTeamDataAccessInterface;
+import use_case.player.PlayerDataAccessInterface;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class PlayerDataAccessObject implements PlayerTeamDataAccessInterface, RecommendationDataAccessInterface {
+public class PlayerDataAccessObject implements PlayerDataAccessInterface, RecommendationDataAccessInterface {
 
     public static void main(String[] args) {
         Player player1 = getPlayerStats(getPlayerID("Russell", "Westbrook"));
