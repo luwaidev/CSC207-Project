@@ -13,6 +13,7 @@ public class BetHistory {
                 ArrayList<String> newBets = new ArrayList<String>();
                 betHistory.get(user).put("teambet", newBets);
                 betHistory.get(user).get("teambet").add(betOrRec);
+
             }
 
             if (type.equals("reccomendation") && betHistory.get(user).containsKey("reccomendation")){
