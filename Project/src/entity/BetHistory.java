@@ -43,19 +43,25 @@ public class BetHistory {
         if (betHistory.containsKey(user)) {
             StringBuilder displayHistory = new StringBuilder();
             displayHistory.append("TeamBet Prediction History \n");
-            int label = 1;
-            for (String bet: betHistory.get(user).get("teambet")) {
-                displayHistory.append(label).append(". ");
-                displayHistory.append(bet).append("\n");
-                label = label + 1;
+            if (betHistory.get(user).containsKey("teambet")) {
+                int label = 1;
+                for (String bet: betHistory.get(user).get("teambet")) {
+                    displayHistory.append(label).append(". ");
+                    displayHistory.append(bet).append("\n");
+                    label = label + 1;
+                }
             }
             displayHistory.append(" \n Recommendation Prediction History \n");
-            int label2 = 1;
-            for (String rec: betHistory.get(user).get("reccomendation")) {
-                displayHistory.append(label2).append(". ");
-                displayHistory.append(rec).append("\n");
-                label2 = label2 + 1;
+
+            if (betHistory.get(user).containsKey("reccomendation")) {
+                int label2 = 1;
+                for (String rec: betHistory.get(user).get("reccomendation")) {
+                    displayHistory.append(label2).append(". ");
+                    displayHistory.append(rec).append("\n");
+                    label2 = label2 + 1;
+                }
             }
+
             return displayHistory.toString();
         }else {
             return null; // Means either the user doesn't exist or the user has no bets
