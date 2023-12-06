@@ -1,9 +1,8 @@
 package use_case.bet_recommendation;
 
 import data_access.PlayerDataAccessObject;
-import data_access.TeamDataAccessObject;
+import entity.BetHistory;
 import entity.Player;
-import entity.Team;
 
 
 import java.util.ArrayList;
@@ -11,6 +10,8 @@ import java.util.ArrayList;
 public class RecommendationInteractor implements RecommendationInputBoundary{
     final RecommendationDataAccessInterface playerDataAccessObject;
     final RecommendationOutputBoundary recommendPresenter;
+    private String username = "username";
+
 
     public RecommendationInteractor(RecommendationDataAccessInterface recommendationDataAccessInterface,
                                     RecommendationOutputBoundary recommendationOutputBoundary) {
@@ -52,13 +53,18 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
             String out = safe_bet + over + under + risky_bet + over1 + under1;
             RecommendationOutputData output = new RecommendationOutputData(out, recommendationInputData.panel);
             recommendPresenter.prepareSuccessView(output);
+            BetHistory.setBetHistory(username, "reccomendation", out);
         }
         else {RecommendationOutputData output = new RecommendationOutputData(error, recommendationInputData.panel);
             recommendPresenter.prepareFailView(output);
 
         }
     }
-
+    @Override
+    public void setUsername(String username){
+        this.username = username;
+        System.out.println("Username set to: " + username + " in BetInteractor");
+    }
     @Override
     public void backToMain() {
         recommendPresenter.backToMain();
