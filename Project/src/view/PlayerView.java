@@ -1,9 +1,8 @@
 package view;
 
-import interface_adapter.player_bets.PlayerController;
-import interface_adapter.player_bets.PlayerPredictionState;
-import interface_adapter.player_bets.PlayerPredictionViewModel;
-import interface_adapter.menu.MenuState;
+import interface_adapter.player.PlayerController;
+import interface_adapter.player.PlayerState;
+import interface_adapter.player.PlayerViewModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +14,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class PlayerView extends JPanel implements ActionListener, PropertyChangeListener {
-    public final String viewName = "bet prediction";
-    private final PlayerPredictionViewModel playerViewModel;
+    public final String viewName = "player";
+    private final PlayerViewModel playerViewModel;
     private final PlayerController playerController;
     JLabel username;
 
@@ -27,7 +26,7 @@ public class PlayerView extends JPanel implements ActionListener, PropertyChange
 
     final JButton back;
 
-    public PlayerView(PlayerPredictionViewModel playerViewModel,
+    public PlayerView(PlayerViewModel playerViewModel,
                       PlayerController playerController){
         this.playerViewModel = playerViewModel;
         this.playerController = playerController;
@@ -62,7 +61,7 @@ public class PlayerView extends JPanel implements ActionListener, PropertyChange
         inputFieldA.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                PlayerPredictionState current = playerViewModel.getState();
+                PlayerState current = playerViewModel.getState();
                 current.setInputA(inputFieldA.getText()+e.getKeyChar());
                 playerViewModel.setState(current);
             }
@@ -81,7 +80,7 @@ public class PlayerView extends JPanel implements ActionListener, PropertyChange
         inputFieldB.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                PlayerPredictionState current = playerViewModel.getState();
+                PlayerState current = playerViewModel.getState();
                 current.setInputB(inputFieldB.getText()+e.getKeyChar());
                 playerViewModel.setState(current);
             }
@@ -104,7 +103,7 @@ public class PlayerView extends JPanel implements ActionListener, PropertyChange
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         if (e.getSource().equals(predict)){
-                            PlayerPredictionState current = playerViewModel.getState();
+                            PlayerState current = playerViewModel.getState();
                             playerController.execute(current.getInputA(), current.getInputB(), panel);
 
                         }
@@ -141,7 +140,7 @@ public class PlayerView extends JPanel implements ActionListener, PropertyChange
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        PlayerPredictionState state = (PlayerPredictionState) evt.getNewValue();
+        PlayerState state = (PlayerState) evt.getNewValue();
 
         playerViewModel.setState(state);
         username.setText(state.getUsername());

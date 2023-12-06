@@ -1,7 +1,7 @@
-package interface_adapter.player_bets;
+package interface_adapter.player;
 
-import use_case.player_bet_predictor.PlayerInputBoundary;
-import use_case.player_bet_predictor.PlayerInputData;
+import use_case.player.PlayerInputBoundary;
+import use_case.player.PlayerInputData;
 
 import javax.swing.*;
 
