@@ -163,7 +163,6 @@ public class BetRecommendView extends JPanel implements ActionListener, Property
         this.add(back);
 
 
-
     }
 
 
@@ -183,6 +182,7 @@ public class BetRecommendView extends JPanel implements ActionListener, Property
         username.setText("Logged In as:" + state.getUsername());
 
         playerinput.setText(state.getInputA());
+        recommendController.setUsername(state.getUsername());
     }
 
 }
