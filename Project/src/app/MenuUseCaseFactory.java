@@ -12,6 +12,7 @@ import interface_adapter.login.LoginViewModel;
 import interface_adapter.menu.MenuController;
 import interface_adapter.menu.MenuPresenter;
 import interface_adapter.menu.MenuViewModel;
+import interface_adapter.player.PlayerViewModel;
 import use_case.login.LoginInputBoundary;
 import use_case.login.LoginInteractor;
 import use_case.login.LoginOutputBoundary;
@@ -21,6 +22,7 @@ import use_case.menu.MenuInteractor;
 import use_case.menu.MenuOutputBoundary;
 import view.LoginView;
 import view.MenuView;
+import view.PlayerView;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -32,10 +34,12 @@ public class MenuUseCaseFactory {
     public static MenuView create(
             ViewManagerModel viewManagerModel,
             MenuViewModel menuViewModel, LoginViewModel loginViewModel,
-            BetPredictionViewModel betPredictionViewModel, BetHistoryViewModel betHistoryViewModel, RecommendViewModel recommendViewModel){
+            BetPredictionViewModel betPredictionViewModel, BetHistoryViewModel betHistoryViewModel,
+            RecommendViewModel recommendViewModel, PlayerViewModel playerViewModel){
 
         try {
-            MenuController menuController = createMenuUseCase(viewManagerModel, menuViewModel,loginViewModel, betPredictionViewModel, betHistoryViewModel, recommendViewModel);
+            MenuController menuController = createMenuUseCase(viewManagerModel, menuViewModel,loginViewModel,
+                    betPredictionViewModel, betHistoryViewModel, recommendViewModel, playerViewModel);
             return new MenuView(menuViewModel, menuController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
@@ -47,10 +51,12 @@ public class MenuUseCaseFactory {
     private static MenuController createMenuUseCase(
             ViewManagerModel viewManagerModel,
             MenuViewModel menuViewModel, LoginViewModel loginViewModel,
-            BetPredictionViewModel betPredictionViewModel,BetHistoryViewModel betHistoryViewModel, RecommendViewModel recommendViewModel) throws IOException {
+            BetPredictionViewModel betPredictionViewModel, BetHistoryViewModel betHistoryViewModel,
+            RecommendViewModel recommendViewModel, PlayerViewModel playerViewModel) throws IOException {
 
         // Notice how we pass this method's parameters to the Presenter.
-        MenuOutputBoundary menuOutputBoundary = new MenuPresenter(viewManagerModel, loginViewModel, betPredictionViewModel, betHistoryViewModel,recommendViewModel);
+        MenuOutputBoundary menuOutputBoundary = new MenuPresenter(viewManagerModel, loginViewModel,
+                betPredictionViewModel, betHistoryViewModel,recommendViewModel, playerViewModel);
 
         MenuInputBoundary menuInteractor = new MenuInteractor(menuOutputBoundary);
 

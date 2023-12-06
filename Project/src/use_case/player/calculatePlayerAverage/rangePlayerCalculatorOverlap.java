@@ -1,4 +1,4 @@
-package use_case.player_bet_predictor.calculatePlayerAverage;
+package use_case.player.calculatePlayerAverage;
 
 import java.util.ArrayList;
 import java.util.Arrays;

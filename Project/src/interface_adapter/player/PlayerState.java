@@ -1,14 +1,14 @@
-package interface_adapter.player_bets;
+package interface_adapter.player;
 
-public class PlayerPredictionState {
+public class PlayerState {
     private String username = "";
     private String inputA = "";
     private String inputB = "";
-    public PlayerPredictionState(PlayerPredictionState copy){
+    public PlayerState(PlayerState copy){
         inputA = copy.inputA;
         inputB = copy.inputB;
     }
-    public PlayerPredictionState(){
+    public PlayerState(){
 
     }
 

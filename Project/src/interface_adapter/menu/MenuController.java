@@ -24,5 +24,10 @@ public class MenuController {
         menuUseCaseInteractor.openBetRecommendation(menuInputData);
     }
 
+    public void openPlayer(String username) {
+        MenuInputData menuInputData = new MenuInputData(username);
+        menuUseCaseInteractor.openPlayer(menuInputData);
+    }
+
     public void logout(){menuUseCaseInteractor.logout();}
 }

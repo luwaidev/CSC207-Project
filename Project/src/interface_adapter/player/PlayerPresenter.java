@@ -1,20 +1,20 @@
-package interface_adapter.player_bets;
+package interface_adapter.player;
 
 import interface_adapter.ViewManagerModel;
 import interface_adapter.menu.MenuViewModel;
-import use_case.player_bet_predictor.PlayerOutputBoundary;
-import use_case.player_bet_predictor.PlayerOutputData;
+import use_case.player.PlayerOutputBoundary;
+import use_case.player.PlayerOutputData;
 
 import javax.swing.*;
 
 public class PlayerPresenter implements PlayerOutputBoundary {
-    private final PlayerPredictionViewModel playerPredictionViewModel;
+    private final PlayerViewModel playerPredictionViewModel;
 
     final ViewManagerModel viewManagerModel;
     final MenuViewModel menuViewModel;
 
     public PlayerPresenter(ViewManagerModel viewManagerModel,
-                           PlayerPredictionViewModel playerPredictionViewModel,
+                           PlayerViewModel playerPredictionViewModel,
                            MenuViewModel menuViewModel){
         this.viewManagerModel = viewManagerModel;
         this.playerPredictionViewModel = playerPredictionViewModel;
