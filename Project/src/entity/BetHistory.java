@@ -6,16 +6,19 @@ public class BetHistory {
     private static final Map<String, Map<String, ArrayList<String>>> betHistory = new HashMap<>();
 
     public static void setBetHistory(String user, String type, String betOrRec) {
+
+        //adds a bet in the case that the user has already been initialized in the betHistory data structure
         if (betHistory.containsKey(user)) {
+            // adds team bet's to history
             if (type.equals("teambet") && betHistory.get(user).containsKey("teambet")){
                 betHistory.get(user).get("teambet").add(betOrRec);
             } else if (type.equals("teambet")) {
                 ArrayList<String> newBets = new ArrayList<String>();
                 betHistory.get(user).put("teambet", newBets);
                 betHistory.get(user).get("teambet").add(betOrRec);
-
             }
 
+            // adds recommendation's to history
             if (type.equals("reccomendation") && betHistory.get(user).containsKey("reccomendation")){
                 betHistory.get(user).get("reccomendation").add(betOrRec);
             } else if (type.equals("reccomendation")) {
@@ -23,7 +26,19 @@ public class BetHistory {
                 betHistory.get(user).put("reccomendation", newBets);
                 betHistory.get(user).get("reccomendation").add(betOrRec);
             }
+
+            // adds player bet's to history
+            if (type.equals("playerbet") && betHistory.get(user).containsKey("playerbet")) {
+                betHistory.get(user).get("playerbet").add(betOrRec);
+            } else if (type.equals("playerbet")) {
+                ArrayList<String> newBets = new ArrayList<String>();
+                betHistory.get(user).put("playerbet", newBets);
+                betHistory.get(user).get("playerbet").add(betOrRec);
+            }
+
+        // adds bets when user has not yet been initialized into data structure
         }else {
+
             if (type.equals("teambet")) {
                 Map<String, ArrayList<String>> newTypes = new HashMap<String, ArrayList<String>>();
                 ArrayList<String> newBets = new ArrayList<String>();
@@ -36,6 +51,12 @@ public class BetHistory {
                 betHistory.put(user, newTypes);
                 betHistory.get(user).put("reccomendation", newBets);
                 betHistory.get(user).get("reccomendation").add(betOrRec);
+            }else if (type.equals("playerbet")) {
+                Map<String, ArrayList<String>> newTypes = new HashMap<String, ArrayList<String>>();
+                ArrayList<String> newBets = new ArrayList<String>();
+                betHistory.put(user, newTypes);
+                betHistory.get(user).put("playerbet", newBets);
+                betHistory.get(user).get("playerbet").add(betOrRec);
             }
         }
     }
@@ -51,7 +72,7 @@ public class BetHistory {
                     label = label + 1;
                 }
             }
-            displayHistory.append(" \n Recommendation Prediction History \n");
+            displayHistory.append(" \nRecommendation Prediction History \n");
 
             if (betHistory.get(user).containsKey("reccomendation")) {
                 int label2 = 1;
@@ -61,7 +82,16 @@ public class BetHistory {
                     label2 = label2 + 1;
                 }
             }
+            displayHistory.append(" \nPlayer Bet History \n");
 
+            if (betHistory.get(user).containsKey("playerbet")) {
+                int label2 = 1;
+                for (String player: betHistory.get(user).get("playerbet")) {
+                    displayHistory.append(label2).append(". ");
+                    displayHistory.append(player).append("\n");
+                    label2 = label2 + 1;
+                }
+            }
             return displayHistory.toString();
         }else {
             return null; // Means either the user doesn't exist or the user has no bets

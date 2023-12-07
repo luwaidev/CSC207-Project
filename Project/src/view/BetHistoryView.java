@@ -85,6 +85,7 @@ public class BetHistoryView extends JPanel implements ActionListener, PropertyCh
         history.setLineWrap(true);
         history.setWrapStyleWord(true);
         history.setAlignmentX(Component.LEFT_ALIGNMENT);
+
         history.setEditable(false);
 
         JScrollPane scroll = new JScrollPane(history);
@@ -112,6 +113,7 @@ public class BetHistoryView extends JPanel implements ActionListener, PropertyCh
         this.add(line);
         this.add(back);
         this.add(scroll);
+
     }
     public void actionPerformed(ActionEvent evt) {
         System.out.println("Click " + evt.getActionCommand());
