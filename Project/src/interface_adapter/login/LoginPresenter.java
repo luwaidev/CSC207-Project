@@ -1,17 +1,11 @@
 package interface_adapter.login;
 
-import interface_adapter.bet_prediction.BetPredictionViewModel;
-import interface_adapter.logged_in.LoggedInState;
-import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.menu.MenuState;
 import interface_adapter.menu.MenuViewModel;
-import interface_adapter.signup.SignupState;
 import interface_adapter.signup.SignupViewModel;
 import use_case.login.LoginOutputBoundary;
 import use_case.login.LoginOutputData;
-import use_case.signup.SignupOutputBoundary;
-import use_case.signup.SignupOutputData;
 
 public class LoginPresenter implements LoginOutputBoundary {
 
@@ -19,7 +13,7 @@ public class LoginPresenter implements LoginOutputBoundary {
     private final SignupViewModel signupViewModel;
     private final MenuViewModel menuViewModel;
 
-    private ViewManagerModel viewManagerModel;
+    private final ViewManagerModel viewManagerModel;
 
     public LoginPresenter(ViewManagerModel viewManagerModel,
                           MenuViewModel menuViewModel,

@@ -28,4 +28,3 @@ public class RecommendController {
         recommendationInteractor.setUsername(username);
     }
 }
-

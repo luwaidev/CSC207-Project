@@ -18,8 +18,8 @@ public class BetInputData {
         this.panel = panel;
 
     }
-    String getTeam1Name(){return this.team1;}
-    String getTeam2Name(){return this.team2;}
-    String getUsername() {return this.username;}
+    public String getTeam1Name(){return this.team1;}
+    public String getTeam2Name(){return this.team2;}
+    public String getUsername() {return this.username;}
 
 }

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 public class Team {
 
     private final int id;
-    private int numgames;
-    private ArrayList<Integer> points_per_game;
-    private double avg_points;
+    private final int numgames;
+    private final ArrayList<Integer> points_per_game;
+    private final double avg_points;
 
     public int getId() {
         return id;
