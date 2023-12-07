@@ -1,4 +1,4 @@
-package testInteractor;
+package interactorTest;
 
 import data_access.InMemoryUserDataAccessObject;
 import entity.CommonUserFactory;

@@ -1,4 +1,4 @@
-package testInteractor;
+package interactorTest;
 import data_access.PlayerDataAccessObject;
 import org.junit.Test;
 import use_case.bet_recommendation.RecommendationInputData;
