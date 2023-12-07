@@ -36,12 +36,12 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
         Player fav_player = PlayerDataAccessObject.getPlayerStats(PlayerDataAccessObject.getPlayerID(first_name, last_name));
         if (fav_player.getId() != -1) {
 
-        ArrayList <Integer> points = fav_player.getPointsPerGame();
+            ArrayList <Integer> points = fav_player.getPointsPerGame();
 
-        Double over_avg = Math.round(fav_player.avg(points,points.size())) + 0.5;
-        Double under_avg = Math.round(fav_player.avg(points,points.size())) - 0.5;
-        Double over_avg1 = Math.round(fav_player.avg(points,points.size())) + 2.5;
-        Double under_avg1 = Math.round(fav_player.avg(points,points.size())) - 2.5;
+            Double over_avg = Math.round(fav_player.avg(points,points.size())) + 0.5;
+            Double under_avg = Math.round(fav_player.avg(points,points.size())) - 0.5;
+            Double over_avg1 = Math.round(fav_player.avg(points,points.size())) + 2.5;
+            Double under_avg1 = Math.round(fav_player.avg(points,points.size())) - 2.5;
 
             String safe_bet = "Risky Bet : \n";
             String over = first_name + " " + last_name + " scoring over " + over_avg1 +" pts"  + "\n";

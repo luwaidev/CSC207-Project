@@ -84,11 +84,11 @@ public class Main {
         views.add(menuView, menuView.viewName);
 
         BetPredictionView betPredictionView = BetPredictionUseCaseFactory.create(viewManagerModel,
-                                                                                betPredictionViewModel, teamDataAccessObject, menuViewModel);
+                betPredictionViewModel, teamDataAccessObject, menuViewModel);
         views.add(betPredictionView, betPredictionView.viewName);
 
         BetHistoryView betHistoryView = BetHistoryUseCaseFactory.create(viewManagerModel,
-                                                                        betHistoryViewModel, menuViewModel);
+                betHistoryViewModel, menuViewModel);
         views.add(betHistoryView, betHistoryView.viewName);
 
         BetRecommendView betRecommendView = BetRecommendationUseCaseFactory.create(viewManagerModel,
@@ -98,7 +98,7 @@ public class Main {
         PlayerView playerView = PlayerUseCaseFactory.create(viewManagerModel, playerViewModel, menuViewModel, playerDataAccessObject);
         views.add(playerView, playerView.viewName);
 
-    // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV
+        // CHANGE THIS VALUE TO CHANGE ACTIVE VIEW FOR DEV
         viewManagerModel.setActiveView(signupView.viewName);
         viewManagerModel.firePropertyChanged();
 

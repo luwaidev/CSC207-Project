@@ -8,5 +8,6 @@ public interface RecommendationOutputBoundary {
     void prepareFailView(RecommendationOutputData recommendationOutputData);
     void backToMain();
 
+    void backtoMain();
 }
 
