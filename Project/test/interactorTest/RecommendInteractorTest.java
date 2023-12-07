@@ -36,9 +36,10 @@ public class RecommendInteractorTest {
             }
 
             @Override
-            public void backtoMain() {
+            public void backToMain() {
 
             }
+
 
 
         };
@@ -63,7 +64,7 @@ public class RecommendInteractorTest {
             }
 
             @Override
-            public void backtoMain() {
+            public void backToMain() {
 
             }
 
