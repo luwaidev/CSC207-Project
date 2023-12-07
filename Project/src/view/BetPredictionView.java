@@ -57,7 +57,7 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
         subtitle.setBackground(Color.decode("#1e1e1e"));
         subtitle.setForeground(Color.white);
         subtitle.setBounds(44, 100, 900, 100);
-        JPanel subtitleUnderline = new JPanel();;
+        JPanel subtitleUnderline = new JPanel();
         subtitleUnderline.setBackground(Color.white);
         subtitleUnderline.setBounds(44, 205, 340, 2);
 

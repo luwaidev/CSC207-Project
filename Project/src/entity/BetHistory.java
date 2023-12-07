@@ -66,5 +66,5 @@ public class BetHistory {
         }else {
             return null; // Means either the user doesn't exist or the user has no bets
         }
-    };
+    }
 }

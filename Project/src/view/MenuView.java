@@ -1,18 +1,13 @@
 package view;
 
-import com.sun.tools.jconsole.JConsoleContext;
-import interface_adapter.logged_in.LoggedInState;
 import interface_adapter.menu.MenuController;
 import interface_adapter.menu.MenuState;
 import interface_adapter.menu.MenuViewModel;
-import interface_adapter.signup.SignupViewModel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
@@ -111,7 +106,6 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         betHistoryPanel.add(betHistoryDescription);
 
         // Bet recomendation
-//        betRecomendationPanel.setBounds(675, 275, 275, 200);
 
         JPanel betRecomendationPanel = new JPanel();
         betRecomendationPanel.setLayout(null);

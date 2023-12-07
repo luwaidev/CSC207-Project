@@ -15,6 +15,6 @@ public class meanPlayerCalculator implements playerCalculator {
             total += point;
         }
 
-        return "They are most likely to get " + Integer.toString(total/allStats.size()) + " points.";
+        return "They are most likely to get " + total / allStats.size() + " points.";
     }
 }

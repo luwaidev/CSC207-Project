@@ -1,7 +1,5 @@
 package interface_adapter.menu;
 
-import interface_adapter.logged_in.LoggedInState;
-
 public class MenuState {
     private String username = "";
 
