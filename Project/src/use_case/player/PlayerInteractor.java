@@ -1,6 +1,7 @@
 package use_case.player;
 
 import data_access.PlayerDataAccessObject;
+import entity.BetHistory;
 import entity.Player;
 import use_case.player.calculatePlayerAverage.Context;
 import use_case.player.calculatePlayerAverage.rangePlayerCalculatorOverlap;
@@ -28,9 +29,9 @@ public class PlayerInteractor implements PlayerInputBoundary {
 
         PlayerOutputData pointsWon = new PlayerOutputData(context.executeStrategy(player.getPointsPerGame()), playerInputData.panel);
         playerPresenter.prepareSuccessView(pointsWon);
+        BetHistory.setBetHistory(username, "playerbet",context.executeStrategy(player.getPointsPerGame()));
 
     }
-
     @Override
     public void setUsername(String username) {
         this.username = username;

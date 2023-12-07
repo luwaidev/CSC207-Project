@@ -53,7 +53,9 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
             String out = safe_bet + over + under + risky_bet + over1 + under1;
             RecommendationOutputData output = new RecommendationOutputData(out, recommendationInputData.panel);
             recommendPresenter.prepareSuccessView(output);
-            BetHistory.setBetHistory(username, "reccomendation", out);
+
+            String new_out = first_name + " " + last_name + ": (Safe Bet: Over " + over_avg1 + ", Under " + under_avg1 + ")" + " | (Risky Bet: Over " + over_avg + ", Under " + under_avg + ")";
+            BetHistory.setBetHistory(username, "reccomendation", new_out);
         }
         else {RecommendationOutputData output = new RecommendationOutputData(error, recommendationInputData.panel);
             recommendPresenter.prepareFailView(output);
