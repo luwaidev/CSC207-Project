@@ -19,14 +19,15 @@ public class RecommendViewModel extends ViewModel {
 
     @Override
     public void firePropertyChanged() {
-        support.firePropertyChange("state", null, this.state);
+        support.firePropertyChange("state", null, state);
     }
 
     @Override
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         support.addPropertyChangeListener(listener);
     }
-    public void setState (RecommendState state) {this.state = state;}
+    public void setState (RecommendState state) {
+        RecommendViewModel.state = state;}
     public static RecommendState getState() {return state;}
 
 

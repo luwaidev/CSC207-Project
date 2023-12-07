@@ -58,7 +58,7 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
         subtitle.setBackground(Color.decode("#1e1e1e"));
         subtitle.setForeground(Color.white);
         subtitle.setBounds(50, 200, 900, 100);
-        JPanel subtitleUnderline = new JPanel();;
+        JPanel subtitleUnderline = new JPanel();
         subtitleUnderline.setBackground(Color.white);
         subtitleUnderline.setBounds(50, 305, 175, 2);
 

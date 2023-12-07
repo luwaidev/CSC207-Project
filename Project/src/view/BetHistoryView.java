@@ -54,7 +54,7 @@ public class BetHistoryView extends JPanel implements ActionListener, PropertyCh
         subtitle.setBackground(Color.decode("#1e1e1e"));
         subtitle.setForeground(Color.white);
         subtitle.setBounds(44, 100, 900, 100);
-        JPanel subtitleUnderline = new JPanel();;
+        JPanel subtitleUnderline = new JPanel();
         subtitleUnderline.setBackground(Color.white);
         subtitleUnderline.setBounds(44, 205, 275, 2);
 
@@ -85,9 +85,12 @@ public class BetHistoryView extends JPanel implements ActionListener, PropertyCh
         history.setLineWrap(true);
         history.setWrapStyleWord(true);
         history.setAlignmentX(Component.LEFT_ALIGNMENT);
-        JScrollPane scroll = new JScrollPane(history, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
+        history.setEditable(false);
 
+        JScrollPane scroll = new JScrollPane(history);
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setBounds(44, 250, 936, 300);
 
 
         back.addActionListener(
@@ -110,7 +113,6 @@ public class BetHistoryView extends JPanel implements ActionListener, PropertyCh
         this.add(line);
         this.add(back);
         this.add(scroll);
-        this.add(history);
 
     }
     public void actionPerformed(ActionEvent evt) {

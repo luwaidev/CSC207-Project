@@ -3,7 +3,7 @@ package use_case.player.calculatePlayerAverage;
 import java.util.ArrayList;
 
 public class Context {
-    private playerCalculator playerCalculator;
+    private final playerCalculator playerCalculator;
 
     public Context(playerCalculator playerCalculator){
         this.playerCalculator = playerCalculator;

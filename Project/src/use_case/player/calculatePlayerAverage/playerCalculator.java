@@ -11,5 +11,5 @@ public interface playerCalculator {
      */
 
     // i had to make it return object since rangePlayerCalculator and meanPlayerCalculator have different return types.
-    public String calculatePlayer(ArrayList<Integer> allStats);
+    String calculatePlayer(ArrayList<Integer> allStats);
 }

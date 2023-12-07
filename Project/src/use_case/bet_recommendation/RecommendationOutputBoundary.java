@@ -6,7 +6,7 @@ public interface RecommendationOutputBoundary {
     void prepareSuccessView(RecommendationOutputData recommendationOutputData);
 
     void prepareFailView(RecommendationOutputData recommendationOutputData);
-    void backToMain();
 
+    void backToMain();
 }
 

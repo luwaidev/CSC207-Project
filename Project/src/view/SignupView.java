@@ -1,10 +1,8 @@
 package view;
 
-import interface_adapter.clear_users.ClearController;
 import interface_adapter.signup.SignupController;
 import interface_adapter.signup.SignupState;
 import interface_adapter.signup.SignupViewModel;
-import use_case.clear_users.ClearInteractor;
 
 
 import javax.swing.*;
@@ -24,18 +22,13 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final JPasswordField passwordInputField = new JPasswordField(15);
     private final JPasswordField repeatPasswordInputField = new JPasswordField(15);
     private final SignupController signupController;
-    private final ClearController clearController;
 
     private final JButton signUp;
     private final JButton login;
 
-    // TODO Note: this is the new JButton for clearing the users file
-    private final JButton clear;
-
-    public SignupView(SignupController controller, SignupViewModel signupViewModel, ClearController clearController) {
+    public SignupView(SignupController controller, SignupViewModel signupViewModel) {
 
         this.signupController = controller;
-        this.clearController = clearController;
         this.signupViewModel = signupViewModel;
         signupViewModel.addPropertyChangeListener(this);
 
@@ -60,7 +53,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         subtitle.setBackground(Color.decode("#1e1e1e"));
         subtitle.setForeground(Color.white);
         subtitle.setBounds(50, 200, 900, 100);
-        JPanel subtitleUnderline = new JPanel();;
+        JPanel subtitleUnderline = new JPanel();
         subtitleUnderline.setBackground(Color.white);
         subtitleUnderline.setBounds(50, 305, 175, 2);
 
@@ -105,13 +98,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         login.setBackground(Color.decode("#FFFFFF"));
         buttons.add(login);
 
-        // TODO Note: the following line instantiates the "clear" button; it uses
-        //      a CLEAR_BUTTON_LABEL constant which is defined in the SignupViewModel class.
-        //      You need to add this "clear" button to the "buttons" panel.
-        // DONE
-        clear = new JButton(SignupViewModel.CLEAR_BUTTON_LABEL);
-//        buttons.add(clear);
-
         signUp.addActionListener(
                 // This creates an anonymous subclass of ActionListener and instantiates it.
                 new ActionListener() {
@@ -129,19 +115,6 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                 }
         );
 
-
-        // TODO Add the body to the actionPerformed method of the action listener below
-        //      for the "clear" button. You'll need to write the controller before
-        //      you can complete this.
-        clear.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        clearController.execute(panel);
-                    }
-
-                }
-        );
 
         login.addActionListener(
                 new ActionListener() {
