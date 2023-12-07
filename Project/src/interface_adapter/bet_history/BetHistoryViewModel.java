@@ -7,7 +7,8 @@ import java.beans.PropertyChangeSupport;
 
 public class BetHistoryViewModel extends ViewModel {
 
-    public final String TITLE_LABEL = "Bet History";
+    public final String TITLE_LABEL = "SPORTSMART";
+    public final String SUBTITLE_LABEL = "Bet History";
     public final String BACK_BUTTON_LABEL = "Back";
     public String HISTORY;
     private BetHistoryState state = new BetHistoryState();

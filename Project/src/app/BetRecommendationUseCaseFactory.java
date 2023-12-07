@@ -7,12 +7,14 @@ import interface_adapter.bet_recommendation.RecommendController;
 import interface_adapter.bet_recommendation.RecommendPresenter;
 import interface_adapter.bet_recommendation.RecommendViewModel;
 
+import interface_adapter.menu.MenuViewModel;
 import use_case.bet_recommendation.RecommendationDataAccessInterface;
 import use_case.bet_recommendation.RecommendationInputBoundary;
 import use_case.bet_recommendation.RecommendationInteractor;
 import use_case.bet_recommendation.RecommendationOutputBoundary;
 
 import view.BetRecommendView;
+import view.MenuView;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -24,10 +26,12 @@ public class BetRecommendationUseCaseFactory {
     public static BetRecommendView create(
             ViewManagerModel viewManagerModel,
             RecommendViewModel recommendViewModel,
-            RecommendationDataAccessInterface recommendationDataAccessInterface){
+            RecommendationDataAccessInterface recommendationDataAccessInterface,
+            MenuViewModel menuViewModel){
 
         try {
-            RecommendController recommendController = createBetRecommendationUseCase(viewManagerModel, recommendViewModel, recommendationDataAccessInterface);
+            RecommendController recommendController = createBetRecommendationUseCase(viewManagerModel,
+                    recommendViewModel, recommendationDataAccessInterface, menuViewModel);
             return new BetRecommendView(recommendViewModel, recommendController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
@@ -38,10 +42,11 @@ public class BetRecommendationUseCaseFactory {
 
     private static RecommendController createBetRecommendationUseCase(
             ViewManagerModel viewManagerModel,
-            RecommendViewModel recommendViewModel, RecommendationDataAccessInterface recommendationDataAccessInterface) throws IOException {
+            RecommendViewModel recommendViewModel,
+            RecommendationDataAccessInterface recommendationDataAccessInterface, MenuViewModel menuViewModel) throws IOException {
 
         RecommendationOutputBoundary recommendationOutputBoundary = new RecommendPresenter(recommendViewModel,
-                viewManagerModel);
+                viewManagerModel, menuViewModel);
 
         RecommendationInputBoundary recommendationInteractor = new RecommendationInteractor(recommendationDataAccessInterface,recommendationOutputBoundary);
 

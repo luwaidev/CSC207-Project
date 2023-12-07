@@ -20,14 +20,18 @@ public class MenuInteractor implements MenuInputBoundary{
     }
 
     @Override
-    public void openBetHistory() {
-
+    public void openPlayer(MenuInputData menuInputData) {
+        MenuOutputData menuOutputData = new MenuOutputData(menuInputData.getUsername());
+        menuPresenter.openPlayer(menuOutputData);
     }
 
     @Override
     public void logout(){menuPresenter.logout();}
 
     @Override
-    public void openBetRecommendation(){menuPresenter.openBetRecommendation();}
+    public void openBetRecommendation(MenuInputData menuInputData){
+        MenuOutputData menuOutputData = new MenuOutputData(menuInputData.getUsername());
+        menuPresenter.openBetRecommendation(menuOutputData);
+    }
 
 }

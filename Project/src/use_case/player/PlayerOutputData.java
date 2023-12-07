@@ -1,18 +1,18 @@
-package use_case.player_bet_predictor;
+package use_case.player;
 
 import javax.swing.*;
 
 public class PlayerOutputData {
-    private final double likelyPointNum;
+    private final String likelyPointNum;
 
     private boolean useCaseFailed;
     public JPanel panel;
 
     public PlayerOutputData(String likelyPointNum, JPanel panel){
-        this.likelyPointNum = Double.parseDouble(likelyPointNum);
+        this.likelyPointNum = likelyPointNum;
         this.panel = panel;
     }
-    public double getLikelyPointNum(){
+    public String getLikelyPointNum(){
         return this.likelyPointNum;
     }
 
