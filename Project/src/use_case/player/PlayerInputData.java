@@ -13,11 +13,11 @@ public class PlayerInputData {
         this.panel = panel;
     }
 
-    String getFirstName(){
+    public String getFirstName(){
         return this.firstName;
     }
 
-    String getLastName(){
+    public String getLastName(){
         return this.lastName;
     }
 
