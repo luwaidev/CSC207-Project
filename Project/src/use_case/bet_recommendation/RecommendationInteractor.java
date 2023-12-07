@@ -70,3 +70,4 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
         recommendPresenter.backToMain();
     }
 }
+
