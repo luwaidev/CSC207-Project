@@ -41,6 +41,7 @@ public class RecommendPresenter implements RecommendationOutputBoundary {
     public void backToMain() {
         this.viewManagerModel.setActiveView(menuViewModel.getViewName());
         this.viewManagerModel.firePropertyChanged();
-
     }
+
+
 }
