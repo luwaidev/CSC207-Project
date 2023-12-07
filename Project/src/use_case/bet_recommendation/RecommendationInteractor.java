@@ -47,8 +47,8 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
             String over = first_name + " " + last_name + " scoring over " + over_avg1 +" pts"  + "\n";
             String under = first_name + " " + last_name + " scoring under " + under_avg1 +" pts"  + "\n" + "\n";
             String risky_bet = "Safe Bet : \n";
-            String over1 = first_name + " " + last_name + " scoring over " + over_avg +" pts"  + "\n";
-            String under1 = first_name + " " + last_name + " scoring under " + under_avg +" pts"  + "\n";
+            String over1 = first_name + " " + last_name + " scoring over " + under_avg +" pts"  + "\n";
+            String under1 = first_name + " " + last_name + " scoring under " + over_avg +" pts"  + "\n";
 
             String out = safe_bet + over + under + risky_bet + over1 + under1;
             RecommendationOutputData output = new RecommendationOutputData(out, recommendationInputData.panel);
