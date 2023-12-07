@@ -71,4 +71,3 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
     }
 }
 
-
