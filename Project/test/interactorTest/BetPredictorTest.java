@@ -1,4 +1,4 @@
-package testInteractor;
+package interactorTest;
 
 import data_access.TeamDataAccessObject;
 import org.junit.Test;
