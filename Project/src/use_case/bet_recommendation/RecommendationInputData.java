@@ -15,7 +15,7 @@ public class RecommendationInputData {
     }
 
 
-    String getName(){return this.name;}
+    public String getName(){return this.name;}
     String getUsername() {return this.username;}
 
 
