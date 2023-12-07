@@ -23,7 +23,7 @@ public class MenuPresenter implements MenuOutputBoundary {
     private final RecommendViewModel recommendViewModel;
     private final PlayerViewModel playerViewModel;
 
-    private ViewManagerModel viewManagerModel;
+    private final ViewManagerModel viewManagerModel;
     public MenuPresenter(ViewManagerModel viewManagerModel, LoginViewModel loginViewModel,
                          BetPredictionViewModel betPredictionViewModel, BetHistoryViewModel betHistoryViewModel,
                          RecommendViewModel recommendViewModel, PlayerViewModel playerViewModel){
@@ -78,7 +78,7 @@ public class MenuPresenter implements MenuOutputBoundary {
     }
     @Override
     public void openBetRecommendation(MenuOutputData menuOutputData){
-        RecommendState recommendState = recommendViewModel.getState();
+        RecommendState recommendState = RecommendViewModel.getState();
         recommendState.setUsername(menuOutputData.getUsername());
         this.recommendViewModel.setState(recommendState);
         this.recommendViewModel.firePropertyChanged();

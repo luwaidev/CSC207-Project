@@ -2,7 +2,6 @@ package data_access;
 
 import entity.User;
 import entity.UserFactory;
-import use_case.clear_users.ClearUserDataAccessInterface;
 import use_case.login.LoginUserDataAccessInterface;
 import use_case.signup.SignupUserDataAccessInterface;
 
@@ -12,7 +11,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface, ClearUserDataAccessInterface {
+public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface {
 
     private final File csvFile;
 
@@ -20,7 +19,7 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
 
     private final Map<String, User> accounts = new HashMap<>();
 
-    private UserFactory userFactory;
+    private final UserFactory userFactory;
 
     public FileUserDataAccessObject(String csvPath, UserFactory userFactory) throws IOException {
         this.userFactory = userFactory;
@@ -97,29 +96,4 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
         return accounts.containsKey(identifier);
     }
 
-
-    /**
-     * Clear user data
-     */
-    @Override
-    public String clearUsers(){
-        // Record users TODO: Make nicer
-        String users = accounts.keySet().toString();
-
-        // Clear users in accounts
-        accounts.clear();
-
-        // Write over all accounts in files
-        BufferedWriter writer;
-        try {
-                writer = new BufferedWriter(new FileWriter(csvFile));
-                writer.write("");
-                writer.close();
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return users;
-
-    }
 }
