@@ -63,8 +63,8 @@ public class BetHistory {
     public static String getBetHistory(String user) {
         if (betHistory.containsKey(user)) {
             StringBuilder displayHistory = new StringBuilder();
-            displayHistory.append("TeamBet Prediction History \n");
             if (betHistory.get(user).containsKey("teambet")) {
+                displayHistory.append("TeamBet Prediction History \n");
                 int label = 1;
                 for (String bet: betHistory.get(user).get("teambet")) {
                     displayHistory.append(label).append(". ");
@@ -72,9 +72,9 @@ public class BetHistory {
                     label = label + 1;
                 }
             }
-            displayHistory.append(" \nRecommendation Prediction History \n");
 
             if (betHistory.get(user).containsKey("reccomendation")) {
+                displayHistory.append(" \nRecommendation Prediction History \n");
                 int label2 = 1;
                 for (String rec: betHistory.get(user).get("reccomendation")) {
                     displayHistory.append(label2).append(". ");
@@ -82,9 +82,9 @@ public class BetHistory {
                     label2 = label2 + 1;
                 }
             }
-            displayHistory.append(" \nPlayer Bet History \n");
 
             if (betHistory.get(user).containsKey("playerbet")) {
+                displayHistory.append(" \nPlayer Bet History \n");
                 int label2 = 1;
                 for (String player: betHistory.get(user).get("playerbet")) {
                     displayHistory.append(label2).append(". ");
