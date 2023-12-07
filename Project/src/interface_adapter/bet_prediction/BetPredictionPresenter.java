@@ -7,7 +7,7 @@ import use_case.bet_predictor.BetOutputData;
 
 import javax.swing.*;
 
-public class BetPredictionPresenter implements BetOutputBoundary {
+public class    BetPredictionPresenter implements BetOutputBoundary {
     private final BetPredictionViewModel betPredictionViewModel;
 
     final ViewManagerModel viewManagerModel;

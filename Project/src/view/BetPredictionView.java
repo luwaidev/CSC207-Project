@@ -3,6 +3,7 @@ package view;
 import interface_adapter.bet_prediction.BetPredictionController;
 import interface_adapter.bet_prediction.BetPredictionState;
 import interface_adapter.bet_prediction.BetPredictionViewModel;
+import interface_adapter.login.LoginViewModel;
 import interface_adapter.menu.MenuState;
 
 import javax.swing.*;
@@ -32,27 +33,76 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
         this.betPredictionController = betPredictionController;
         this.bpViewModel.addPropertyChangeListener(this);
 
-        // Main title
-        JLabel title = new JLabel((bpViewModel.TITLE_LABEL));
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // Style
+        JPanel panel = this;
+        panel.setBackground(Color.decode("#1e1e1e"));
 
+        // Title Panel
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(null);
+
+        JLabel title = new JLabel(bpViewModel.TITLE_LABEL, SwingConstants.CENTER);
+        title.setFont(new Font("Futura", Font.BOLD, 64));
+        title.setForeground(Color.decode("#A3B7FF"));
+        title.setBounds(0, 0, 1024, 100);
+        title.setBackground(Color.decode("#181818"));
+
+        titlePanel.setBackground(Color.decode("#181818"));
+        titlePanel.setBounds(0, 0, 1024, 100);
+        titlePanel.add(title);
+
+        // Subtitle Section
+        JLabel subtitle = new JLabel(bpViewModel.SUBTITLE_LABEL, SwingConstants.LEFT);
+        subtitle.setFont(new Font("Futura", Font.BOLD, 48));
+        subtitle.setBackground(Color.decode("#1e1e1e"));
+        subtitle.setForeground(Color.white);
+        subtitle.setBounds(44, 100, 900, 100);
+        JPanel subtitleUnderline = new JPanel();;
+        subtitleUnderline.setBackground(Color.white);
+        subtitleUnderline.setBounds(44, 205, 340, 2);
+
+        // Username Section
         username = new JLabel("USERNAME");
+        username.setFont(new Font("Futura", Font.BOLD, 24));
+        username.setForeground(Color.decode("#FFFFFF"));
+        username.setBackground(Color.decode("#1e1e1e"));
+        username.setBounds(500, 100, 900, 100);
 
-        JPanel teamInputs = new JPanel();
         // First Team Input
-        LabelTextPanel inputA = new LabelTextPanel(new JLabel(bpViewModel.INPUT_A_LABEL),inputFieldA);
-        teamInputs.add(inputA);
+        JLabel inputALabel = new JLabel(bpViewModel.INPUT_A_LABEL, SwingConstants.LEFT);
+        LabelTextPanel inputA = new LabelTextPanel(
+                inputALabel, inputFieldA);
+        inputALabel.setFont(new Font("Futura", Font.BOLD, 30));
+        inputALabel.setForeground(Color.white);
+        inputA.setBackground(Color.decode("#1e1e1e"));
+        inputA.setBounds(-240, 250, 900, 50);
+
         // Second Team Input
-        LabelTextPanel inputB = new LabelTextPanel(new JLabel(bpViewModel.INPUT_B_LABEL),inputFieldB);
-        teamInputs.add(inputB);
+        JLabel inputBLabel = new JLabel(bpViewModel.INPUT_B_LABEL, SwingConstants.LEFT);
+        LabelTextPanel inputB = new LabelTextPanel(
+                inputBLabel, inputFieldB);
+        inputBLabel.setFont(new Font("Futura", Font.BOLD, 30));
+        inputBLabel.setForeground(Color.white);
+        inputB.setBackground(Color.decode("#1e1e1e"));
+        inputB.setBounds(-240, 300, 900, 50);
 
-        // Predict Bet Button & Back Button
-        JPanel buttons = new JPanel();
+        // Divider Line
+        JPanel line = new JPanel();
+        line.setBackground(Color.white);
+        line.setBounds(44, 600, 938, 2);
 
+        // Button Section
         predict = new JButton(bpViewModel.PREDICT_BUTTON_LABEL);
+        predict.setFont(new Font("Futura", Font.BOLD, 20));
+        predict.setBackground(Color.decode("#FFFFFF"));
+        predict.setBounds(44, 625, 200, 50);
+
+
         back = new JButton(bpViewModel.BACK_BUTTON_LABEL);
-        buttons.add(predict);
-        buttons.add(back);
+        back.setFont(new Font("Futura", Font.BOLD, 20));
+        back.setBackground(Color.decode("#FFFFFF"));
+        back.setBounds(784, 625, 200, 50);
+
 
         //Set Input Field Key Listeners
         inputFieldA.addKeyListener(new KeyListener() {
@@ -92,7 +142,6 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
 
             }
         });
-        JPanel panel = this;
 
         predict.addActionListener(
                 new ActionListener() {
@@ -102,6 +151,7 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
                             BetPredictionState current = bpViewModel.getState();
 
                             betPredictionController.execute(current.getInputA(), current.getInputB(), String.valueOf(username), panel);
+
 
                         }
                     }
@@ -121,12 +171,17 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
         );
 
 
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setLayout(null);
 
-        this.add(title);
+        this.add(titlePanel);
+        this.add(subtitle);
+        this.add(subtitleUnderline);
         this.add(username);
-        this.add(teamInputs);
-        this.add(buttons);
+        this.add(inputA);
+        this.add(inputB);
+        this.add(line);
+        this.add(predict);
+        this.add(back);
     }
 
     /**
@@ -145,7 +200,7 @@ public class BetPredictionView extends JPanel implements ActionListener, Propert
         bpViewModel.setState(state);
 
         // Update username display
-        username.setText(state.getUsername());
+        username.setText("Logged In as:" + state.getUsername());
 
         // Update username in interactor
         betPredictionController.setUsername(state.getUsername());

@@ -25,7 +25,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
     final JButton logOut;
     final JButton betHistory;
     final JButton betRecommendation;
-
+    final JButton player;
     public MenuView(MenuViewModel menuViewModel, MenuController menuController) {
         this.menuViewModel = menuViewModel;
         this.menuController = menuController;
@@ -66,6 +66,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
 
         // Button Section
 
+//        Bet Prediction
         JPanel betPredictionPanel = new JPanel();
         betPredictionPanel.setLayout(null);
         betPredictionPanel.setBackground(Color.decode("#181818"));
@@ -87,6 +88,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         betPredictionPanel.add(betPrediction);
         betPredictionPanel.add(betPredictionDescription);
 
+        // Bet History
         JPanel betHistoryPanel = new JPanel();
         betHistoryPanel.setLayout(null);
         betHistoryPanel.setBackground(Color.decode("#181818"));
@@ -108,12 +110,51 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         betHistoryPanel.add(betHistory);
         betHistoryPanel.add(betHistoryDescription);
 
+        // Bet recomendation
+//        betRecomendationPanel.setBounds(675, 275, 275, 200);
+
         JPanel betRecomendationPanel = new JPanel();
         betRecomendationPanel.setLayout(null);
         betRecomendationPanel.setBackground(Color.decode("#181818"));
-        betRecomendationPanel.setBounds(675, 275, 275, 200);
-
+        betRecomendationPanel.setBounds(50, 500, 275, 200);
         betRecommendation = new JButton(menuViewModel.BET_RECOMMENDATION_BUTTON);
+        betRecommendation.setBounds(10, 10, 255, 40);
+        betRecommendation.setFont(new Font("Futura", Font.BOLD, 28));
+        betRecommendation.setBackground(Color.decode("#ffffff"));
+
+        JTextArea betRecomendationDescription = new JTextArea(menuViewModel.BET_RECOMMENDATION_BUTTON_DESCRIPTION);
+        betRecomendationDescription.setBounds(10, 60, 255, 100);
+        betRecomendationDescription.setFont(new Font("Futura", Font.BOLD, 18));
+        betRecomendationDescription.setForeground(Color.decode("#FFFFFF"));
+        betRecomendationDescription.setBackground(Color.decode("#181818"));
+        betRecomendationDescription.setLineWrap(true);
+        betRecomendationDescription.setWrapStyleWord(true);
+        betRecomendationDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        betRecomendationPanel.add(betRecommendation);
+        betRecomendationPanel.add(betRecomendationDescription);
+
+        // Player
+        JPanel playerPanel = new JPanel();
+        playerPanel.setLayout(null);
+        playerPanel.setBackground(Color.decode("#181818"));
+        playerPanel.setBounds(362, 500, 275, 200);
+        player = new JButton(menuViewModel.PLAYER_BUTTON);
+        player.setBounds(10, 10, 255, 40);
+        player.setFont(new Font("Futura", Font.BOLD, 28));
+        player.setBackground(Color.decode("#ffffff"));
+
+        JTextArea playerDescription = new JTextArea(menuViewModel.PLAYER_BUTTON_DESCRIPTION);
+        playerDescription.setBounds(10, 60, 255, 100);
+        playerDescription.setFont(new Font("Futura", Font.BOLD, 18));
+        playerDescription.setForeground(Color.decode("#FFFFFF"));
+        playerDescription.setBackground(Color.decode("#181818"));
+        playerDescription.setLineWrap(true);
+        playerDescription.setWrapStyleWord(true);
+        playerDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        playerPanel.add(player);
+        playerPanel.add(playerDescription);
       
         // Log out button
         logOut = new JButton(menuViewModel.LOG_OUT_BUTTON);
@@ -125,7 +166,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         betRecommendation.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                menuController.openBetRecommendation();
+                menuController.openBetRecommendation(menuViewModel.getState().getUsername());
             }
         });
 
@@ -141,6 +182,13 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
             @Override
             public void actionPerformed(ActionEvent e) {
                 menuController.openBetHistory(menuViewModel.getState().getUsername());
+            }
+        });
+
+        player.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                menuController.openPlayer(menuViewModel.getState().getUsername());
             }
         });
 
@@ -160,7 +208,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         this.add(betPredictionPanel);
         this.add(betHistoryPanel);
         this.add(betRecomendationPanel);
-
+        this.add(playerPanel);
         this.add(logOut);
     }
 

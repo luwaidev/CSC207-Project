@@ -1,22 +1,18 @@
-package use_case.player_bet_predictor;
+package use_case.player;
 
 import data_access.PlayerDataAccessObject;
-import data_access.TeamDataAccessObject;
 import entity.Player;
-import use_case.player_bet_predictor.calculatePlayerAverage.Context;
-import use_case.player_bet_predictor.calculatePlayerAverage.meanPlayerCalculator;
-import use_case.player_bet_predictor.calculatePlayerAverage.rangePlayerCalculatorOverlap;
-
-import java.util.ArrayList;
+import use_case.player.calculatePlayerAverage.Context;
+import use_case.player.calculatePlayerAverage.rangePlayerCalculatorOverlap;
 
 public class PlayerInteractor implements PlayerInputBoundary {
 
-    final PlayerTeamDataAccessInterface playerDataAccessObject;
+    final PlayerDataAccessInterface playerDataAccessObject;
     final PlayerOutputBoundary playerPresenter;
     private String username = "username";
 
-    public PlayerInteractor(PlayerTeamDataAccessInterface playerDataAccessInterface,
-                                    PlayerOutputBoundary playerOutputBoundary) {
+    public PlayerInteractor(PlayerDataAccessInterface playerDataAccessInterface,
+                            PlayerOutputBoundary playerOutputBoundary) {
         this.playerDataAccessObject = playerDataAccessInterface;
         this.playerPresenter = playerOutputBoundary;
 

@@ -1,4 +1,4 @@
-package use_case.player_bet_predictor.calculatePlayerAverage;
+package use_case.player.calculatePlayerAverage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -125,7 +125,7 @@ public class rangePlayerCalculatorOverlap implements playerCalculator {
         String prob = Double.toString(probability);
         String probPoints = Arrays.toString(maxKey);
 
-        return "They have a " + prob + "% probability of achieving between " + probPoints + " points, inclusive.";
+        return "They have a " + prob + "% probability of achieving " + probPoints + " point(s), inclusive.";
     }
 
     // private method for finding minimum value in ArrayList<Integer>
