@@ -22,7 +22,9 @@ public class BetPredictionUseCaseFactory {
 
         public static BetPredictionView create(
                 ViewManagerModel viewManagerModel,
-                BetPredictionViewModel betPredictionViewModel, BetTeamDataAccessInterface dataAccessInterface, MenuViewModel menuViewModel){
+                BetPredictionViewModel betPredictionViewModel,
+                BetTeamDataAccessInterface dataAccessInterface,
+                MenuViewModel menuViewModel){
 
             try {
                 BetPredictionController betPredictionController = createBetPredictionUseCase(viewManagerModel,

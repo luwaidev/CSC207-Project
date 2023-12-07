@@ -7,7 +7,6 @@ import entity.CommonUserFactory;
 import interface_adapter.bet_history.BetHistoryViewModel;
 import interface_adapter.bet_recommendation.RecommendViewModel;
 import interface_adapter.login.LoginViewModel;
-import interface_adapter.logged_in.LoggedInViewModel;
 import interface_adapter.menu.MenuViewModel;
 import interface_adapter.player.PlayerViewModel;
 import interface_adapter.signup.SignupViewModel;
@@ -47,7 +46,6 @@ public class Main {
 
         // Initialize View Models
         LoginViewModel loginViewModel = new LoginViewModel();
-        LoggedInViewModel loggedInViewModel = new LoggedInViewModel();
         SignupViewModel signupViewModel = new SignupViewModel();
 
         MenuViewModel menuViewModel = new MenuViewModel();
@@ -69,15 +67,12 @@ public class Main {
         PlayerDataAccessObject playerDataAccessObject = new PlayerDataAccessObject();
 
         // Initialize Views
-        SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel, userDataAccessObject, userDataAccessObject);
+        SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel, userDataAccessObject);
         views.add(signupView, signupView.viewName);
 
         LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel, menuViewModel,
                 signupViewModel, userDataAccessObject);
         views.add(loginView, loginView.viewName);
-
-        LoggedInView loggedInView = new LoggedInView(loggedInViewModel);
-        views.add(loggedInView, loggedInView.viewName);
 
         MenuView menuView = MenuUseCaseFactory.create(viewManagerModel, menuViewModel, loginViewModel,
                 betPredictionViewModel, betHistoryViewModel, recommendViewModel, playerViewModel);
