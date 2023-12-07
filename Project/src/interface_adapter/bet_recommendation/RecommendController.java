@@ -23,5 +23,8 @@ public class RecommendController {
     public void backToMain(){
         recommendationInteractor.backToMain();
     }
-}
 
+    public void setUsername(String username){
+        recommendationInteractor.setUsername(username);
+    }
+}
