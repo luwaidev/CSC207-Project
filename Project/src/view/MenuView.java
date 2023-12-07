@@ -72,6 +72,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         betPrediction.setBackground(Color.decode("#ffffff"));
 
         JTextArea betPredictionDescription = new JTextArea(menuViewModel.BET_PREDICTION_BUTTON_DESCRIPTION);
+        betPredictionDescription.setEditable(false);
         betPredictionDescription.setBounds(10, 60, 255, 100);
         betPredictionDescription.setFont(new Font("Futura", Font.BOLD, 18));
         betPredictionDescription.setForeground(Color.decode("#FFFFFF"));
@@ -94,6 +95,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         betHistory.setBackground(Color.decode("#ffffff"));
 
         JTextArea betHistoryDescription = new JTextArea(menuViewModel.BET_HISTORY_BUTTON_DESCRIPTION);
+        betHistoryDescription.setEditable(false);
         betHistoryDescription.setBounds(10, 60, 255, 100);
         betHistoryDescription.setFont(new Font("Futura", Font.BOLD, 18));
         betHistoryDescription.setForeground(Color.decode("#FFFFFF"));
@@ -117,6 +119,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         betRecommendation.setBackground(Color.decode("#ffffff"));
 
         JTextArea betRecomendationDescription = new JTextArea(menuViewModel.BET_RECOMMENDATION_BUTTON_DESCRIPTION);
+        betRecomendationDescription.setEditable(false);
         betRecomendationDescription.setBounds(10, 60, 255, 100);
         betRecomendationDescription.setFont(new Font("Futura", Font.BOLD, 18));
         betRecomendationDescription.setForeground(Color.decode("#FFFFFF"));
@@ -139,6 +142,7 @@ public class MenuView extends JPanel implements ActionListener, PropertyChangeLi
         player.setBackground(Color.decode("#ffffff"));
 
         JTextArea playerDescription = new JTextArea(menuViewModel.PLAYER_BUTTON_DESCRIPTION);
+        playerDescription.setEditable(false);
         playerDescription.setBounds(10, 60, 255, 100);
         playerDescription.setFont(new Font("Futura", Font.BOLD, 18));
         playerDescription.setForeground(Color.decode("#FFFFFF"));
