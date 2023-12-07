@@ -20,8 +20,11 @@ public class RecommendController {
         recommendationInteractor.execute(recommendationInputData);
     }
 
-    public void backtoMain() {
-        recommendationInteractor.backtoMain();
+    public void backToMain(){
+        recommendationInteractor.backToMain();
+    }
+
+    public void setUsername(String username){
+        recommendationInteractor.setUsername(username);
     }
 }
-

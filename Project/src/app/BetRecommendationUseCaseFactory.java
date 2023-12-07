@@ -14,6 +14,7 @@ import use_case.bet_recommendation.RecommendationInteractor;
 import use_case.bet_recommendation.RecommendationOutputBoundary;
 
 import view.BetRecommendView;
+import view.MenuView;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -25,10 +26,12 @@ public class BetRecommendationUseCaseFactory {
     public static BetRecommendView create(
             ViewManagerModel viewManagerModel,
             RecommendViewModel recommendViewModel,
-            RecommendationDataAccessInterface recommendationDataAccessInterface, MenuViewModel menuViewModel){
+            RecommendationDataAccessInterface recommendationDataAccessInterface,
+            MenuViewModel menuViewModel){
 
         try {
-            RecommendController recommendController = createBetRecommendationUseCase(viewManagerModel, recommendViewModel, recommendationDataAccessInterface, menuViewModel);
+            RecommendController recommendController = createBetRecommendationUseCase(viewManagerModel,
+                    recommendViewModel, recommendationDataAccessInterface, menuViewModel);
             return new BetRecommendView(recommendViewModel, recommendController);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Could not open user data file.");
@@ -39,7 +42,8 @@ public class BetRecommendationUseCaseFactory {
 
     private static RecommendController createBetRecommendationUseCase(
             ViewManagerModel viewManagerModel,
-            RecommendViewModel recommendViewModel, RecommendationDataAccessInterface recommendationDataAccessInterface, MenuViewModel menuViewModel) throws IOException {
+            RecommendViewModel recommendViewModel,
+            RecommendationDataAccessInterface recommendationDataAccessInterface, MenuViewModel menuViewModel) throws IOException {
 
         RecommendationOutputBoundary recommendationOutputBoundary = new RecommendPresenter(recommendViewModel,
                 viewManagerModel, menuViewModel);

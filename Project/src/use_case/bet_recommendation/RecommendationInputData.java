@@ -14,7 +14,7 @@ public class RecommendationInputData {
         this.panel = panel;
     }
 
-    String getName(){return this.name;}
+    public String getName(){return this.name;}
 
 
 
