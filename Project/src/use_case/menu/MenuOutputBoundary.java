@@ -8,6 +8,7 @@ public interface MenuOutputBoundary {
     public void openBetRecommendation(MenuOutputData menuOutputData);
     public void openPlayer(MenuOutputData menuOutputData);
 
+
     public void logout();
 
 }
