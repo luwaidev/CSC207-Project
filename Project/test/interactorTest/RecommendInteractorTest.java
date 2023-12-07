@@ -1,4 +1,4 @@
-package interactorTest;
+package testInter;
 import data_access.PlayerDataAccessObject;
 import org.junit.Test;
 import use_case.bet_recommendation.RecommendationInputData;
@@ -26,8 +26,8 @@ public class RecommendInteractorTest {
             public void prepareSuccessView(RecommendationOutputData recommendationOutputData) {
                 assertEquals("Risky Bet : \n" + "Kawhi Leonard scoring over 28.5 pts\n" +
                         "Kawhi Leonard scoring under 23.5 pts\n\n" + "Safe Bet : \n" +
-                        "Kawhi Leonard scoring over 26.5 pts\n" +
-                        "Kawhi Leonard scoring under 25.5 pts\n", recommendationOutputData.getBet_recommendation());
+                        "Kawhi Leonard scoring over 25.5 pts\n" +
+                        "Kawhi Leonard scoring under 26.5 pts\n", recommendationOutputData.getBet_recommendation());
             }
 
             @Override
