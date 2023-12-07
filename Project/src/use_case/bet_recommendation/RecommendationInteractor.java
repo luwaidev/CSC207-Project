@@ -42,10 +42,10 @@ public class RecommendationInteractor implements RecommendationInputBoundary{
         Double over_avg1 = Math.round(fav_player.avg(points,points.size())) + 2.5;
         Double under_avg1 = Math.round(fav_player.avg(points,points.size())) - 2.5;
 
-            String safe_bet = "Safe Bet : \n";
+            String safe_bet = "Risky Bet : \n";
             String over = first_name + " " + last_name + " scoring over " + over_avg1 +" pts"  + "\n";
             String under = first_name + " " + last_name + " scoring under " + under_avg1 +" pts"  + "\n" + "\n";
-            String risky_bet = "Risky Bet : \n";
+            String risky_bet = "Safe Bet : \n";
             String over1 = first_name + " " + last_name + " scoring over " + over_avg +" pts"  + "\n";
             String under1 = first_name + " " + last_name + " scoring under " + under_avg +" pts"  + "\n";
 
